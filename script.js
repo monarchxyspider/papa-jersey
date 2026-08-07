@@ -1,78 +1,112 @@
 const text = document.getElementById("text");
+const message = document.querySelector(".message");
+
 const yesBtn = document.getElementById("yes");
 const noBtn = document.getElementById("no");
 
-const messages = [
-    "Papa plij 🥺",
-    "Sirf aik football jersey 😭",
-    "Papa please please 🥹",
-    "Best Papa ban jao ❤️",
-    "Ab to maan jao 😭",
-    "Akhri baar pooch raha hoon 🥺",
-    "No mat bolo 😭",
-    "Papa ap bohot ache ho ❤️",
-    "Bas aik hi jersey chahiye 🥹",
-    "Pleaseeeeeee 😭❤️"
+
+const noMessages = [
+    "Papa plij soch lo na 🥺❤️",
+    "Sirf ek football jersey chahiye ⚽🥹",
+    "Acha Papa last time pooch raha hoon 😭❤️"
 ];
 
-let index = 0;
+let noClicks = 0;
 let yesScale = 1;
-let noScale = 1;
+
+
 
 noBtn.addEventListener("click", () => {
 
-    text.innerHTML = messages[index % messages.length];
-    index++;
+    noClicks++;
 
-    yesScale += 0.15;
-    noScale -= 0.08;
-
+    // Yes button grows
+    yesScale += 0.12;
     yesBtn.style.transform = `scale(${yesScale})`;
 
-    if(noScale > 0.25){
-        noBtn.style.transform = `scale(${noScale})`;
+
+    if(noClicks <= 3){
+
+        text.innerHTML = noMessages[noClicks - 1];
+
+        message.innerHTML = 
+        "Papa aap duniya ke sab se ache papa ho ❤️";
+
+
+        // No button moves
+        noBtn.style.position = "fixed";
+
+        let maxX = window.innerWidth - noBtn.offsetWidth - 20;
+        let maxY = window.innerHeight - noBtn.offsetHeight - 20;
+
+        let randomX = Math.random() * maxX;
+        let randomY = Math.random() * maxY;
+
+
+        noBtn.style.left = randomX + "px";
+        noBtn.style.top = randomY + "px";
+
     }
 
-    // No button bhaagne lage 😂
-    if(index >= 6){
-        noBtn.style.position = "absolute";
-        noBtn.style.left = Math.random() * (window.innerWidth - 100) + "px";
-        noBtn.style.top = Math.random() * (window.innerHeight - 60) + "px";
+
+    else{
+
+        text.innerHTML =
+        "Papa 🥺❤️<br>Aap mana nahi kar sakte";
+
+
+        message.innerHTML =
+        "Aap mere favourite Papa ho 🌸";
+
+
+        noBtn.style.position = "static";
+        noBtn.style.transform = "scale(1)";
+
+        noBtn.innerHTML = "Theek hai Papa ❤️";
+
     }
+
 });
+
+
+
+
 
 yesBtn.addEventListener("click", () => {
 
-    document.body.innerHTML = `
-    <div style="
-        display:flex;
-        flex-direction:column;
-        justify-content:center;
-        align-items:center;
-        height:100vh;
-        background:linear-gradient(135deg,#43cea2,#185a9d);
-        color:white;
-        text-align:center;
-        font-family:Arial;
-        padding:20px;
-    ">
-        <h1 style="font-size:60px;">🎉 Hurrah!! 🎉</h1>
 
-        <h2 style="margin-top:20px;">
-            Thank You Papa ❤️
-        </h2>
+document.body.innerHTML = `
 
-        <p style="font-size:24px;margin-top:15px;">
-            You're The Best Papa In The World 🥹❤️
-        </p>
+<div class="success">
 
-        <p style="margin-top:20px;font-size:20px;">
-            Ab Football Jersey mil gayi!! ⚽🥳
-        </p>
-
-        <div style="font-size:70px;margin-top:30px;">
-            🎉🎊❤️⚽🎉
-        </div>
+    <div class="big-heart">
+        ❤️
     </div>
-    `;
+
+
+    <h1>
+        Thank You Papa 🥹❤️
+    </h1>
+
+
+    <h2>
+        Aap duniya ke sab se ache Papa ho 🌎
+    </h2>
+
+
+    <p>
+        Football Jersey ke liye bohot bohot shukriya ⚽🎉
+    </p>
+
+
+    <div class="celebrate">
+        🎊 ⚽ 🎉 ❤️ 🥳
+    </div>
+
+
+</div>
+
+`;
+
+
 });
