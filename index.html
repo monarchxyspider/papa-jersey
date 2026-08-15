@@ -1,47 +1,361 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>For Papa ❤️</title>
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Happy Birthday Papa ❤️</title>
 
     <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
 </head>
 
 <body>
 
-    <div class="container">
+    <!-- ================================= -->
+    <!-- BACKGROUND -->
+    <!-- ================================= -->
 
-        <div class="emoji">
-            ⚽🥺
-        </div>
+    <div class="background"></div>
 
-        <h1 id="text">
-            Papa ❤️<br>
-            <span>Ek choti si request hai 🥹</span>
-        </h1>
 
-        <p class="message">
-            Papa, aap duniya ke sab se ache papa ho ❤️<br>
-            Kya aap mujhe ek football jersey dila dein? ⚽🥺
-        </p>
+    <!-- ================================= -->
+    <!-- FLOATING BIRTHDAY MESSAGES -->
+    <!-- ================================= -->
 
-        <div class="buttons">
+    <div id="floatingMessages"></div>
 
-            <button id="yes">
-                Haan Papa ❤️
-            </button>
 
-            <button id="no">
-                Nahi 🥺
-            </button>
+    <!-- ================================= -->
+    <!-- OPTIONAL FLOATING IMAGES -->
+    <!-- ================================= -->
 
-        </div>
+    <div class="floating-images">
 
-        <div class="footer">
-            Made with love for the best Papa 🌸
-        </div>
+        <!-- Apna animated heart / GIF / emoji URL yahan lagao -->
+        <img
+            src="https://cdn.discordapp.com/attachments/1482397391888842844/1538183928828141600/942544-heart.gif?ex=6a81c0ea&is=6a806f6a&hm=bb0b663511744e578150e1b3c3748bdc6e3762c757749ce0da1001cc2eb334bc&"
+            class="floating-image floating-heart"
+            alt=""
+        >
+
+        <!-- Apni second image yahan lagao -->
+        <img
+            src="https://cdn.discordapp.com/attachments/1482397391888842844/1538184182864547840/422458-peachpetals.gif?ex=6a81c127&is=6a806fa7&hm=a1b21cffacfceb95abea40c90984fde543a110da8d4778fdcc31a4e854af6787&"
+            class="floating-image floating-decoration"
+            alt=""
+        >
+
+    </div>
+
+
+    <!-- ================================= -->
+    <!-- BIRTHDAY MUSIC -->
+    <!-- ================================= -->
+
+    <audio
+        id="birthdayMusic"
+        preload="auto"
+    >
+
+        <source
+            src="happy-birthday.mp3"
+            type="audio/mpeg"
+        >
+
+    </audio>
+
+
+    <!-- ================================= -->
+    <!-- MAIN -->
+    <!-- ================================= -->
+
+    <main class="birthday-page">
+
+
+        <!-- ================================= -->
+        <!-- INTRO -->
+        <!-- ================================= -->
+
+        <section class="intro">
+
+            <p class="intro-small">
+                A little surprise for someone very special...
+            </p>
+
+            <h1 class="intro-title">
+                Happy Birthday, Papa ❤️
+            </h1>
+
+        </section>
+
+
+        <!-- ================================= -->
+        <!-- CAKE -->
+        <!-- ================================= -->
+
+        <section class="cake-section">
+
+            <div
+                class="cake"
+                id="cake"
+            >
+
+
+                <!-- ================================= -->
+                <!-- CANDLES -->
+                <!-- ================================= -->
+
+                <div class="candles">
+
+
+                    <div
+                        class="candle"
+                        data-candle="1"
+                    >
+
+                        <div class="flame"></div>
+
+                        <div class="candle-stick"></div>
+
+                    </div>
+
+
+                    <div
+                        class="candle"
+                        data-candle="2"
+                    >
+
+                        <div class="flame"></div>
+
+                        <div class="candle-stick"></div>
+
+                    </div>
+
+
+                    <div
+                        class="candle"
+                        data-candle="3"
+                    >
+
+                        <div class="flame"></div>
+
+                        <div class="candle-stick"></div>
+
+                    </div>
+
+
+                    <div
+                        class="candle"
+                        data-candle="4"
+                    >
+
+                        <div class="flame"></div>
+
+                        <div class="candle-stick"></div>
+
+                    </div>
+
+
+                    <div
+                        class="candle"
+                        data-candle="5"
+                    >
+
+                        <div class="flame"></div>
+
+                        <div class="candle-stick"></div>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- ================================= -->
+                <!-- CAKE TOP -->
+                <!-- ================================= -->
+
+                <div class="cake-top">
+
+                    <span class="cream-drop drop-1"></span>
+                    <span class="cream-drop drop-2"></span>
+                    <span class="cream-drop drop-3"></span>
+                    <span class="cream-drop drop-4"></span>
+                    <span class="cream-drop drop-5"></span>
+
+                </div>
+
+
+                <!-- ================================= -->
+                <!-- TOP LAYER -->
+                <!-- ================================= -->
+
+                <div class="cake-layer cake-layer-top">
+
+                    <div class="cake-dots">
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================================= -->
+                <!-- MIDDLE LAYER -->
+                <!-- ================================= -->
+
+                <div class="cake-layer cake-layer-middle">
+
+                    <div class="cake-decoration">
+
+                        <span>♥</span>
+                        <span>♥</span>
+                        <span>♥</span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================================= -->
+                <!-- BOTTOM LAYER -->
+                <!-- ================================= -->
+
+                <div class="cake-layer cake-layer-bottom">
+
+                    <div class="cake-stripe"></div>
+
+                </div>
+
+
+                <!-- ================================= -->
+                <!-- CAKE PLATE -->
+                <!-- ================================= -->
+
+                <div class="cake-plate"></div>
+
+
+            </div>
+
+
+            <p
+                class="candle-instruction"
+                id="candleInstruction"
+            >
+                ✨ Click the candles to make a wish ✨
+            </p>
+
+        </section>
+
+
+        <!-- ================================= -->
+        <!-- BIRTHDAY MESSAGE -->
+        <!-- ================================= -->
+
+        <section
+            class="birthday-message"
+            id="birthdayMessage"
+        >
+
+            <h2 id="bigBirthdayText"></h2>
+
+
+            <div class="message-card">
+
+                <p>
+                    Dear Papa,
+                </p>
+
+                <p>
+                    You are one of the most precious blessings
+                    in my life. Your love, your prayers and your
+                    presence make every moment of life more
+                    beautiful.
+                </p>
+
+                <p>
+                    May Allah bless you with a long,
+                    healthy, peaceful and happy life.
+                    May every coming year bring you more
+                    happiness, countless blessings and
+                    beautiful moments.
+                </p>
+
+                <p class="final-line">
+                    Happy Birthday to the most wonderful
+                    Papa in the world. ❤️
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================= -->
+        <!-- WISH BUTTON -->
+        <!-- ================================= -->
+
+        <button
+            id="wishButton"
+            class="wish-button"
+        >
+            💖 Make a Wish
+        </button>
+
+
+    </main>
+
+
+    <!-- ================================= -->
+    <!-- CONFETTI IMAGE -->
+    <!-- ================================= -->
+
+    <div class="confetti-container">
+
+        <!-- Apni animated confetti GIF/WEBP ka link yahan lagao -->
+
+        <img
+            src="https://cdn.discordapp.com/attachments/1482397391888842844/1538183475918536724/730795-gomacheerpeach.gif?ex=6a81c07e&is=6a806efe&hm=28b841ca4beb12342406edcd0212126431232806d0115320d4286c96b2f542a4&"
+            class="confetti-image"
+            alt=""
+        >
+
+    </div>
+
+
+    <!-- ================================= -->
+    <!-- FINAL DECORATION -->
+    <!-- ================================= -->
+
+    <div class="final-decoration">
+
+        <!-- Apni final animated image yahan lagao -->
+
+        <img
+            src="https://cdn.discordapp.com/attachments/1482397391888842844/1538184627796320456/916493-pastelgalaxyclouds.png?ex=6a81c191&is=6a807011&hm=08551a110611103660595133abeed31c555deb78e58617d20b25794e2f4ff47e&"
+            alt=""
+            class="final-image"
+        >
 
     </div>
 
@@ -49,4 +363,5 @@
     <script src="script.js"></script>
 
 </body>
+
 </html>
