@@ -26,34 +26,41 @@
 
 <body>
 
-    <!-- ================================= -->
+    <!-- ========================================= -->
     <!-- BACKGROUND -->
-    <!-- ================================= -->
+    <!-- ========================================= -->
 
     <div class="background"></div>
 
-
-    <!-- ================================= -->
-    <!-- FLOATING BIRTHDAY MESSAGES -->
-    <!-- ================================= -->
-
-    <div id="floatingMessages"></div>
+    <!-- Soft background glow -->
+    <div class="background-glow glow-1"></div>
+    <div class="background-glow glow-2"></div>
+    <div class="background-glow glow-3"></div>
 
 
-    <!-- ================================= -->
-    <!-- OPTIONAL FLOATING IMAGES -->
-    <!-- ================================= -->
+    <!-- ========================================= -->
+    <!-- RANDOM FLOATING BIRTHDAY TEXT -->
+    <!-- ========================================= -->
+
+    <div
+        id="floatingMessages"
+        class="floating-messages"
+        aria-hidden="true"
+    ></div>
+
+
+    <!-- ========================================= -->
+    <!-- OLD DECORATION MEDIA — PRESERVED -->
+    <!-- ========================================= -->
 
     <div class="floating-images">
 
-        <!-- Apna animated heart / GIF / emoji URL yahan lagao -->
         <img
             src="https://cdn.discordapp.com/attachments/1482397391888842844/1538183928828141600/942544-heart.gif?ex=6a81c0ea&is=6a806f6a&hm=bb0b663511744e578150e1b3c3748bdc6e3762c757749ce0da1001cc2eb334bc&"
             class="floating-image floating-heart"
             alt=""
         >
 
-        <!-- Apni second image yahan lagao -->
         <img
             src="https://cdn.discordapp.com/attachments/1482397391888842844/1538184182864547840/422458-peachpetals.gif?ex=6a81c127&is=6a806fa7&hm=a1b21cffacfceb95abea40c90984fde543a110da8d4778fdcc31a4e854af6787&"
             class="floating-image floating-decoration"
@@ -63,202 +70,50 @@
     </div>
 
 
-    <!-- ================================= -->
+    <!-- ========================================= -->
     <!-- BIRTHDAY MUSIC -->
-    <!-- ================================= -->
+    <!-- ========================================= -->
 
     <audio
         id="birthdayMusic"
         preload="auto"
     >
-
         <source
             src="happy-birthday.mp3"
             type="audio/mpeg"
         >
-
     </audio>
 
 
-    <!-- ================================= -->
-    <!-- MAIN -->
-    <!-- ================================= -->
+    <!-- ========================================= -->
+    <!-- MAIN PAGE -->
+    <!-- ========================================= -->
 
     <main class="birthday-page">
 
 
-        <!-- ================================= -->
-        <!-- INTRO -->
-        <!-- ================================= -->
-
-        <section class="intro">
-
-            <p class="intro-small">
-                A little surprise for someone very special...
-            </p>
-
-            <h1 class="intro-title">
-                Happy Birthday, Papa ❤️
-            </h1>
-
-        </section>
-
-
-        <!-- ================================= -->
-<!-- CAKE -->
-<!-- ================================= -->
-
-<div class="cake">
-
-    <!-- TOP CHOCOLATE -->
-    <div class="cake-top">
-
-        <div class="chocolate-drip drip-1"></div>
-        <div class="chocolate-drip drip-2"></div>
-        <div class="chocolate-drip drip-3"></div>
-        <div class="chocolate-drip drip-4"></div>
-        <div class="chocolate-drip drip-5"></div>
-
-        <!-- Decorations -->
-        <span class="cake-heart heart-1">♥</span>
-        <span class="cake-heart heart-2">♥</span>
-        <span class="cake-heart heart-3">♥</span>
-
-    </div>
-
-
-    <!-- TOP CREAM LAYER -->
-    <div class="cake-layer cake-top-layer">
-
-        <div class="cream-line"></div>
-
-    </div>
-
-
-    <!-- CHOCOLATE MIDDLE LAYER -->
-    <div class="cake-layer cake-chocolate-layer">
-
-        <div class="chocolate-stripe"></div>
-
-        <div class="cake-sprinkles">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-
-    </div>
-
-
-    <!-- CREAM MIDDLE -->
-    <div class="cake-layer cake-cream-layer">
-
-        <div class="cream-decoration">
-
-            <span>♥</span>
-            <span>♥</span>
-            <span>♥</span>
-            <span>♥</span>
-
-        </div>
-
-    </div>
-
-
-    <!-- BOTTOM CHOCOLATE LAYER -->
-    <div class="cake-layer cake-bottom-layer">
-
-        <div class="bottom-decoration">
-
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-
-        </div>
-
-    </div>
-
-
-    <!-- CAKE PLATE -->
-    <div class="cake-plate"></div>
-
-</div>
-                <!-- ================================= -->
-                <!-- CANDLES -->
-                <!-- ================================= -->
-
-                <!-- CANDLES -->
-
-<div class="candles">
-
-    <div class="candle" onclick="blowCandle(this)">
-        <div class="flame"></div>
-        <div class="candle-body"></div>
-    </div>
-
-    <div class="candle" onclick="blowCandle(this)">
-        <div class="flame"></div>
-        <div class="candle-body"></div>
-    </div>
-
-    <div class="candle" onclick="blowCandle(this)">
-        <div class="flame"></div>
-        <div class="candle-body"></div>
-    </div>
-
-    <div class="candle" onclick="blowCandle(this)">
-        <div class="flame"></div>
-        <div class="candle-body"></div>
-    </div>
-
-    <div class="candle" onclick="blowCandle(this)">
-        <div class="flame"></div>
-        <div class="candle-body"></div>
-    </div>
-
-</div>
-
-
-                <!-- == ================================= -->
-        <!-- BIRTHDAY MESSAGE -->
-        <!-- ================================= -->
+        <!-- ========================================= -->
+        <!-- INTRO SCREEN -->
+        <!-- ========================================= -->
 
         <section
-            class="birthday-message"
-            id="birthdayMessage"
+            class="intro"
+            id="intro"
         >
 
-            <h2 id="bigBirthdayText"></h2>
+            <div class="intro-content">
 
-
-            <div class="message-card">
-
-                <p>
-                    Dear Papa,
+                <p class="intro-small">
+                    A little surprise for someone very special...
                 </p>
 
-                <p>
-                    You are one of the most precious blessings
-                    in my life. Your love, your prayers and your
-                    presence make every moment of life more
-                    beautiful.
-                </p>
+                <h1 class="intro-title">
+                    Happy Birthday, Papa
+                    <span class="heart">❤️</span>
+                </h1>
 
-                <p>
-                    May Allah bless you with a long,
-                    healthy, peaceful and happy life.
-                    May every coming year bring you more
-                    happiness, countless blessings and
-                    beautiful moments.
-                </p>
-
-                <p class="final-line">
-                    Happy Birthday to the most wonderful
-                    Papa in the world. ❤️
+                <p class="intro-hint">
+                    Tap anywhere to begin ✨
                 </p>
 
             </div>
@@ -266,28 +121,370 @@
         </section>
 
 
-        <!-- ================================= -->
-        <!-- WISH BUTTON -->
-        <!-- ================================= -->
+        <!-- ========================================= -->
+        <!-- BIRTHDAY EXPERIENCE -->
+        <!-- ========================================= -->
 
-        <button
-            id="wishButton"
-            class="wish-button"
+        <section
+            class="birthday-experience"
+            id="birthdayExperience"
         >
-            💖 Make a Wish
-        </button>
 
+
+            <!-- ========================================= -->
+            <!-- CAKE INTRO TEXT -->
+            <!-- ========================================= -->
+
+            <div
+                class="cake-intro"
+                id="cakeIntro"
+            >
+
+                <p>
+                    Something sweet is being made for you...
+                </p>
+
+            </div>
+
+
+            <!-- ========================================= -->
+            <!-- CAKE AREA -->
+            <!-- ========================================= -->
+
+            <div
+                class="cake-scene"
+                id="cakeScene"
+            >
+
+
+                <!-- ===================================== -->
+                <!-- CAKE GLOW -->
+                <!-- ===================================== -->
+
+                <div class="cake-glow"></div>
+
+
+                <!-- ===================================== -->
+                <!-- CANDLES -->
+                <!-- ===================================== -->
+
+                <div
+                    class="candles"
+                    id="candles"
+                >
+
+                    <!-- Candle 1 -->
+                    <div
+                        class="candle candle-1"
+                        data-candle="1"
+                        onclick="blowCandle(this)"
+                    >
+
+                        <div class="flame">
+                            <span class="flame-inner"></span>
+                        </div>
+
+                        <div class="smoke"></div>
+
+                        <div class="candle-body"></div>
+
+                    </div>
+
+
+                    <!-- Candle 2 -->
+                    <div
+                        class="candle candle-2"
+                        data-candle="2"
+                        onclick="blowCandle(this)"
+                    >
+
+                        <div class="flame">
+                            <span class="flame-inner"></span>
+                        </div>
+
+                        <div class="smoke"></div>
+
+                        <div class="candle-body"></div>
+
+                    </div>
+
+
+                    <!-- Candle 3 -->
+                    <div
+                        class="candle candle-3"
+                        data-candle="3"
+                        onclick="blowCandle(this)"
+                    >
+
+                        <div class="flame">
+                            <span class="flame-inner"></span>
+                        </div>
+
+                        <div class="smoke"></div>
+
+                        <div class="candle-body"></div>
+
+                    </div>
+
+
+                    <!-- Candle 4 -->
+                    <div
+                        class="candle candle-4"
+                        data-candle="4"
+                        onclick="blowCandle(this)"
+                    >
+
+                        <div class="flame">
+                            <span class="flame-inner"></span>
+                        </div>
+
+                        <div class="smoke"></div>
+
+                        <div class="candle-body"></div>
+
+                    </div>
+
+
+                    <!-- Candle 5 -->
+                    <div
+                        class="candle candle-5"
+                        data-candle="5"
+                        onclick="blowCandle(this)"
+                    >
+
+                        <div class="flame">
+                            <span class="flame-inner"></span>
+                        </div>
+
+                        <div class="smoke"></div>
+
+                        <div class="candle-body"></div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ===================================== -->
+                <!-- CAKE -->
+                <!-- ===================================== -->
+
+                <div
+                    class="cake"
+                    id="cake"
+                >
+
+
+                    <!-- ================================= -->
+                    <!-- TOP CHOCOLATE -->
+                    <!-- ================================= -->
+
+                    <div
+                        class="cake-part cake-top"
+                        data-layer="top"
+                    >
+
+                        <div class="chocolate-drip drip-1"></div>
+                        <div class="chocolate-drip drip-2"></div>
+                        <div class="chocolate-drip drip-3"></div>
+                        <div class="chocolate-drip drip-4"></div>
+                        <div class="chocolate-drip drip-5"></div>
+
+                        <span class="cake-heart heart-1">♥</span>
+                        <span class="cake-heart heart-2">♥</span>
+                        <span class="cake-heart heart-3">♥</span>
+
+                    </div>
+
+
+                    <!-- ================================= -->
+                    <!-- TOP CREAM -->
+                    <!-- ================================= -->
+
+                    <div
+                        class="cake-part cake-layer cake-top-layer"
+                        data-layer="cream-top"
+                    >
+
+                        <div class="cream-line"></div>
+
+                    </div>
+
+
+                    <!-- ================================= -->
+                    <!-- CHOCOLATE MIDDLE -->
+                    <!-- ================================= -->
+
+                    <div
+                        class="cake-part cake-layer cake-chocolate-layer"
+                        data-layer="chocolate-middle"
+                    >
+
+                        <div class="chocolate-stripe"></div>
+
+                        <div class="cake-sprinkles">
+
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ================================= -->
+                    <!-- CREAM MIDDLE -->
+                    <!-- ================================= -->
+
+                    <div
+                        class="cake-part cake-layer cake-cream-layer"
+                        data-layer="cream-middle"
+                    >
+
+                        <div class="cream-decoration">
+
+                            <span>♥</span>
+                            <span>♥</span>
+                            <span>♥</span>
+                            <span>♥</span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ================================= -->
+                    <!-- BOTTOM CHOCOLATE -->
+                    <!-- ================================= -->
+
+                    <div
+                        class="cake-part cake-layer cake-bottom-layer"
+                        data-layer="bottom"
+                    >
+
+                        <div class="bottom-decoration">
+
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ================================= -->
+                    <!-- CAKE PLATE -->
+                    <!-- ================================= -->
+
+                    <div
+                        class="cake-plate"
+                        data-layer="plate"
+                    ></div>
+
+                </div>
+
+
+                <!-- ===================================== -->
+                <!-- CLICK CANDLES HINT -->
+                <!-- ===================================== -->
+
+                <p
+                    class="candle-hint"
+                    id="candleHint"
+                >
+                    ✨ Click the candles to blow them out ✨
+                </p>
+
+            </div>
+
+
+            <!-- ========================================= -->
+            <!-- BIG HAPPY BIRTHDAY -->
+            <!-- ========================================= -->
+
+            <section
+                class="birthday-message"
+                id="birthdayMessage"
+            >
+
+                <h2
+                    id="bigBirthdayText"
+                    class="big-birthday-text"
+                    aria-label="Happy Birthday"
+                ></h2>
+
+
+                <!-- ===================================== -->
+                <!-- MESSAGE CARD -->
+                <!-- ===================================== -->
+
+                <div
+                    class="message-card"
+                    id="messageCard"
+                >
+
+                    <p class="message-greeting">
+                        Dear Papa,
+                    </p>
+
+                    <p>
+                        You are one of the most precious blessings
+                        in my life. Your love, your prayers and your
+                        presence make every moment of life more
+                        beautiful.
+                    </p>
+
+                    <p>
+                        May Allah bless you with a long,
+                        healthy, peaceful and happy life.
+                        May every coming year bring you more
+                        happiness, countless blessings and
+                        beautiful moments.
+                    </p>
+
+                    <p class="final-line">
+                        Happy Birthday to the most wonderful
+                        Papa in the world. ❤️
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- ========================================= -->
+            <!-- WISH BUTTON -->
+            <!-- ========================================= -->
+
+            <button
+                id="wishButton"
+                class="wish-button"
+                type="button"
+            >
+                💖 Make a Wish
+            </button>
+
+
+        </section>
 
     </main>
 
 
-    <!-- ================================= -->
-    <!-- CONFETTI IMAGE -->
-    <!-- ================================= -->
+    <!-- ========================================= -->
+    <!-- OLD CONFETTI MEDIA — PRESERVED -->
+    <!-- ========================================= -->
 
-    <div class="confetti-container">
-
-        <!-- Apni animated confetti GIF/WEBP ka link yahan lagao -->
+    <div
+        class="confetti-container"
+        aria-hidden="true"
+    >
 
         <img
             src="https://cdn.discordapp.com/attachments/1482397391888842844/1538183475918536724/730795-gomacheerpeach.gif?ex=6a81c07e&is=6a806efe&hm=28b841ca4beb12342406edcd0212126431232806d0115320d4286c96b2f542a4&"
@@ -298,13 +495,14 @@
     </div>
 
 
-    <!-- ================================= -->
-    <!-- FINAL DECORATION -->
-    <!-- ================================= -->
+    <!-- ========================================= -->
+    <!-- OLD FINAL DECORATION — PRESERVED -->
+    <!-- ========================================= -->
 
-    <div class="final-decoration">
-
-        <!-- Apni final animated image yahan lagao -->
+    <div
+        class="final-decoration"
+        aria-hidden="true"
+    >
 
         <img
             src="https://cdn.discordapp.com/attachments/1482397391888842844/1538184627796320456/916493-pastelgalaxyclouds.png?ex=6a81c191&is=6a807011&hm=08551a110611103660595133abeed31c555deb78e58617d20b25794e2f4ff47e&"
@@ -314,6 +512,10 @@
 
     </div>
 
+
+    <!-- ========================================= -->
+    <!-- JAVASCRIPT -->
+    <!-- ========================================= -->
 
     <script src="script.js"></script>
 
