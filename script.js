@@ -1,534 +1,907 @@
-// ==========================================
-// PAPA'S BIRTHDAY WEBSITE
-// script.js
-// ==========================================
+/* =========================================================
+   HAPPY BIRTHDAY PAPA ❤️
+   Main Birthday Animation Controller
+   ========================================================= */
 
-document.addEventListener("DOMContentLoaded", () => {
 
-    // ==========================================
-    // ELEMENTS
-    // ==========================================
+/* =========================================================
+   ELEMENTS
+   ========================================================= */
 
-    const cake = document.querySelector(".cake");
-    const candles = document.querySelectorAll(".candle");
-    const birthdaySound = document.getElementById("birthdaySound");
+const intro = document.getElementById("intro");
+const birthdayExperience =
+    document.getElementById("birthdayExperience");
 
-    const finalMessage = document.querySelector(".final-message");
-    const finalTitle = document.querySelector(".final-title");
-    const finalText = document.querySelector(".final-text");
+const birthdayMusic =
+    document.getElementById("birthdayMusic");
 
-    // ==========================================
-    // SETTINGS
-    // ==========================================
+const cakeIntro =
+    document.getElementById("cakeIntro");
 
-    let candlesBlown = 0;
-    let celebrationStarted = false;
+const cake =
+    document.getElementById("cake");
 
-    const birthdayMessages = [
-        "Happy Birthday Dear Papa ❤️",
-        "Happy Birthday To You Papa 🎂",
-        "Love You Papa ❤️",
-        "Our Greatest Blessing ✨",
-        "May Allah Always Keep You Happy 🤍",
-        "Best Papa Ever ❤️",
-        "May Allah Bless You Always ✨"
-    ];
+const candles =
+    document.querySelectorAll(".candle");
 
-    // ==========================================
-    // CAKE LAYER ANIMATION
-    // ==========================================
+const candleHint =
+    document.getElementById("candleHint");
 
-    function buildCake() {
+const birthdayMessage =
+    document.getElementById("birthdayMessage");
 
-        if (!cake) return;
+const bigBirthdayText =
+    document.getElementById("bigBirthdayText");
 
-        const layers = cake.querySelectorAll(".cake-layer");
+const messageCard =
+    document.getElementById("messageCard");
 
-        layers.forEach((layer, index) => {
+const wishButton =
+    document.getElementById("wishButton");
 
-            layer.style.opacity = "0";
-            layer.style.transform = "translateY(40px) scale(.8)";
+const floatingMessages =
+    document.getElementById("floatingMessages");
 
-            setTimeout(() => {
 
-                layer.style.transition =
-                    "all 0.8s cubic-bezier(.2,.8,.2,1)";
+/* =========================================================
+   SETTINGS
+   ========================================================= */
 
-                layer.style.opacity = "1";
-                layer.style.transform =
-                    "translateY(0) scale(1)";
+const birthdayText = "HAPPY BIRTHDAY";
 
-            }, 700 + (index * 700));
+const papaMessages = [
+    "Happy Birthday Dear Papa ❤️",
+    "Happy Birthday Papa 🎂",
+    "Love You Papa ❤️",
+    "Best Papa Ever ✨",
+    "May Allah Always Bless You 🤍",
+    "Happy Birthday To You Papa 🎉"
+];
 
-        });
+let candlesBlown = 0;
+let started = false;
+let birthdayFinished = false;
+
+
+/* =========================================================
+   INITIAL STATE
+   ========================================================= */
+
+function initializePage() {
+
+    birthdayExperience.classList.remove("active");
+
+    birthdayMessage.classList.remove("show");
+
+    messageCard.classList.remove("show");
+
+    wishButton.classList.remove("show");
+
+    cakeIntro.classList.remove("show");
+
+    candleHint.classList.remove("show");
+
+    bigBirthdayText.innerHTML = "";
+
+    candles.forEach((candle) => {
+
+        candle.classList.remove("lit");
+        candle.classList.remove("blown");
+
+        const flame =
+            candle.querySelector(".flame");
+
+        const smoke =
+            candle.querySelector(".smoke");
+
+        if (flame) {
+            flame.style.display = "";
+        }
+
+        if (smoke) {
+            smoke.classList.remove("smoke-active");
+        }
+
+    });
+
+}
+
+
+/* =========================================================
+   PAGE LOAD
+   ========================================================= */
+
+window.addEventListener("load", () => {
+
+    initializePage();
+
+    setTimeout(() => {
+
+        intro.classList.add("ready");
+
+    }, 300);
+
+});
+
+
+/* =========================================================
+   START EXPERIENCE
+   ========================================================= */
+
+function startBirthday() {
+
+    if (started) return;
+
+    started = true;
+
+    /* -----------------------------------------
+       Start Music
+       ----------------------------------------- */
+
+    if (birthdayMusic) {
+
+        birthdayMusic.currentTime = 0;
+
+        const playPromise =
+            birthdayMusic.play();
+
+        if (playPromise !== undefined) {
+
+            playPromise.catch(() => {
+
+                console.log(
+                    "Music will start after user interaction."
+                );
+
+            });
+
+        }
+
     }
 
-    // Start cake animation
-    buildCake();
+
+    /* -----------------------------------------
+       Hide Intro
+       ----------------------------------------- */
+
+    intro.classList.add("hide");
 
 
-    // ==========================================
-    // CANDLE CLICK
-    // ==========================================
+    /* -----------------------------------------
+       Show Birthday Experience
+       ----------------------------------------- */
 
-    candles.forEach(candle => {
+    setTimeout(() => {
 
-        candle.addEventListener("click", () => {
+        birthdayExperience.classList.add("active");
 
-            // Already blown
-            if (candle.classList.contains("blown")) {
-                return;
-            }
+    }, 500);
 
-            candle.classList.add("blown");
 
-            candlesBlown++;
+    /* -----------------------------------------
+       Cake Intro
+       ----------------------------------------- */
 
-            // Flame
-            const flame =
-                candle.querySelector(".flame");
+    setTimeout(() => {
 
-            if (flame) {
+        cakeIntro.classList.add("show");
 
-                flame.style.animation =
-                    "flameOut .5s forwards";
+    }, 900);
 
-            }
 
-            // Small smoke effect
-            createSmoke(candle);
+    /* -----------------------------------------
+       Start Cake Building
+       ----------------------------------------- */
 
-            // Check all candles
-            if (candlesBlown >= candles.length) {
+    setTimeout(() => {
 
-                startCelebration();
+        buildCake();
 
-            }
+    }, 1700);
 
-        });
+
+    /* -----------------------------------------
+       Floating Messages
+       ----------------------------------------- */
+
+    setTimeout(() => {
+
+        startFloatingMessages();
+
+    }, 2500);
+
+}
+
+
+/* =========================================================
+   START ON USER INTERACTION
+   ========================================================= */
+
+document.addEventListener(
+    "click",
+    function startOnClick(event) {
+
+        if (started) return;
+
+        /*
+         * Don't require a specific button.
+         * First tap anywhere starts everything.
+         */
+
+        startBirthday();
+
+    },
+    {
+        once: true
+    }
+);
+
+
+/* =========================================================
+   CAKE BUILDING
+   ========================================================= */
+
+function buildCake() {
+
+    const cakeParts =
+        document.querySelectorAll(".cake-part");
+
+    /*
+     * Bottom-to-top order
+     */
+
+    const buildOrder = [
+        "plate",
+        "bottom",
+        "cream-middle",
+        "chocolate-middle",
+        "cream-top",
+        "top"
+    ];
+
+
+    buildOrder.forEach((layerName, index) => {
+
+        setTimeout(() => {
+
+            const layer =
+                document.querySelector(
+                    `[data-layer="${layerName}"]`
+                );
+
+            if (!layer) return;
+
+            layer.classList.add("build");
+
+        }, index * 850);
 
     });
 
 
-    // ==========================================
-    // SMOKE EFFECT
-    // ==========================================
+    /*
+     * Cake finished
+     */
 
-    function createSmoke(candle) {
+    const totalCakeTime =
+        buildOrder.length * 850 + 600;
 
-        const smoke =
-            document.createElement("div");
 
-        smoke.className = "candle-smoke";
+    setTimeout(() => {
 
-        candle.appendChild(smoke);
+        cake.classList.add("complete");
 
-        setTimeout(() => {
-            smoke.remove();
-        }, 2000);
+        cakeIntro.classList.remove("show");
 
-    }
+        lightCandles();
 
+    }, totalCakeTime);
 
-    // ==========================================
-    // CELEBRATION
-    // ==========================================
+}
 
-    function startCelebration() {
 
-        if (celebrationStarted) return;
+/* =========================================================
+   LIGHT CANDLES
+   ========================================================= */
 
-        celebrationStarted = true;
+function lightCandles() {
 
-        // Play birthday sound
-        playBirthdaySound();
-
-        // Confetti
-        createConfetti();
-
-        // Hearts
-        createHearts(20);
-
-        // Balloons
-        createBalloons(12);
-
-        // Sparkles
-        createSparkles(30);
-
-        // Random birthday messages
-        startFloatingMessages();
-
-        // Final message
-        setTimeout(() => {
-
-            showFinalMessage();
-
-        }, 2500);
-
-    }
-
-
-    // ==========================================
-    // SOUND
-    // ==========================================
-
-    function playBirthdaySound() {
-
-        if (!birthdaySound) return;
-
-        birthdaySound.currentTime = 0;
-
-        birthdaySound.play().catch(() => {
-
-            console.log(
-                "Audio requires user interaction."
-            );
-
-        });
-
-    }
-
-
-    // ==========================================
-    // CONFETTI
-    // ==========================================
-
-    function createConfetti() {
-
-        const colors = [
-            "#ff4d6d",
-            "#ffd166",
-            "#06d6a0",
-            "#4dabf7",
-            "#c77dff",
-            "#ffffff"
-        ];
-
-        for (let i = 0; i < 100; i++) {
-
-            const piece =
-                document.createElement("div");
-
-            piece.className = "confetti";
-
-            piece.style.left =
-                Math.random() * 100 + "vw";
-
-            piece.style.background =
-                colors[
-                    Math.floor(
-                        Math.random() *
-                        colors.length
-                    )
-                ];
-
-            piece.style.animationDuration =
-                (2 + Math.random() * 3) + "s";
-
-            piece.style.animationDelay =
-                Math.random() * .8 + "s";
-
-            piece.style.transform =
-                `rotate(${Math.random() * 360}deg)`;
-
-            document.body.appendChild(piece);
-
-            setTimeout(() => {
-
-                piece.remove();
-
-            }, 5500);
-
-        }
-
-    }
-
-
-    // ==========================================
-    // FLOATING HEARTS
-    // ==========================================
-
-    function createHearts(amount) {
-
-        for (let i = 0; i < amount; i++) {
-
-            setTimeout(() => {
-
-                const heart =
-                    document.createElement("div");
-
-                heart.className =
-                    "floating-heart";
-
-                heart.innerHTML = "❤️";
-
-                heart.style.left =
-                    Math.random() * 100 + "vw";
-
-                heart.style.fontSize =
-                    (15 + Math.random() * 25) + "px";
-
-                heart.style.animationDuration =
-                    (4 + Math.random() * 4) + "s";
-
-                document.body.appendChild(heart);
-
-                setTimeout(() => {
-
-                    heart.remove();
-
-                }, 8000);
-
-            }, i * 150);
-
-        }
-
-    }
-
-
-    // ==========================================
-    // BALLOONS
-    // ==========================================
-
-    function createBalloons(amount) {
-
-        const colors = [
-            "#ff4d6d",
-            "#ffd166",
-            "#06d6a0",
-            "#4dabf7",
-            "#c77dff"
-        ];
-
-        for (let i = 0; i < amount; i++) {
-
-            const balloon =
-                document.createElement("div");
-
-            balloon.className =
-                "birthday-balloon";
-
-            balloon.innerHTML = "🎈";
-
-            balloon.style.left =
-                Math.random() * 95 + "vw";
-
-            balloon.style.fontSize =
-                (35 + Math.random() * 30) + "px";
-
-            balloon.style.animationDuration =
-                (5 + Math.random() * 5) + "s";
-
-            balloon.style.animationDelay =
-                Math.random() * 2 + "s";
-
-            document.body.appendChild(balloon);
-
-            setTimeout(() => {
-
-                balloon.remove();
-
-            }, 11000);
-
-        }
-
-    }
-
-
-    // ==========================================
-    // SPARKLES
-    // ==========================================
-
-    function createSparkles(amount) {
-
-        for (let i = 0; i < amount; i++) {
-
-            setTimeout(() => {
-
-                const sparkle =
-                    document.createElement("div");
-
-                sparkle.className =
-                    "birthday-sparkle";
-
-                sparkle.innerHTML = "✨";
-
-                sparkle.style.left =
-                    Math.random() * 100 + "vw";
-
-                sparkle.style.top =
-                    Math.random() * 100 + "vh";
-
-                sparkle.style.fontSize =
-                    (12 + Math.random() * 20) + "px";
-
-                sparkle.style.animationDuration =
-                    (1 + Math.random() * 2) + "s";
-
-                document.body.appendChild(sparkle);
-
-                setTimeout(() => {
-
-                    sparkle.remove();
-
-                }, 3000);
-
-            }, i * 100);
-
-        }
-
-    }
-
-
-    // ==========================================
-    // RANDOM BIRTHDAY TEXT
-    // ==========================================
-
-    function startFloatingMessages() {
-
-        let count = 0;
-
-        const interval =
-            setInterval(() => {
-
-                createBirthdayMessage();
-
-                count++;
-
-                if (count >= 15) {
-
-                    clearInterval(interval);
-
-                }
-
-            }, 700);
-
-    }
-
-
-    function createBirthdayMessage() {
-
-        const message =
-            document.createElement("div");
-
-        message.className =
-            "random-birthday-message";
-
-        message.textContent =
-            birthdayMessages[
-                Math.floor(
-                    Math.random() *
-                    birthdayMessages.length
-                )
-            ];
-
-        message.style.left =
-            (5 + Math.random() * 80) + "vw";
-
-        message.style.top =
-            (10 + Math.random() * 75) + "vh";
-
-        message.style.transform =
-            `rotate(${(-8 + Math.random() * 16)}deg)`;
-
-        document.body.appendChild(message);
+    candles.forEach((candle, index) => {
 
         setTimeout(() => {
 
-            message.remove();
+            candle.classList.add("lit");
 
-        }, 4500);
+        }, index * 350);
+
+    });
+
+
+    /*
+     * Show candle instruction
+     */
+
+    setTimeout(() => {
+
+        candleHint.classList.add("show");
+
+    }, candles.length * 350 + 500);
+
+}
+
+
+/* =========================================================
+   CANDLE CLICK
+   ========================================================= */
+
+function blowCandle(candle) {
+
+    if (!candle) return;
+
+    if (candle.classList.contains("blown")) {
+        return;
+    }
+
+
+    /* -----------------------------------------
+       Mark candle as blown
+       ----------------------------------------- */
+
+    candle.classList.add("blown");
+
+
+    /* -----------------------------------------
+       Stop flame
+       ----------------------------------------- */
+
+    const flame =
+        candle.querySelector(".flame");
+
+    if (flame) {
+
+        flame.classList.add("flame-out");
 
     }
 
 
-    // ==========================================
-    // FINAL MESSAGE
-    // ==========================================
+    /* -----------------------------------------
+       Start smoke
+       ----------------------------------------- */
 
-    function showFinalMessage() {
+    const smoke =
+        candle.querySelector(".smoke");
 
-        if (!finalMessage) return;
+    if (smoke) {
 
-        finalMessage.classList.add("show");
-
-        // Title
-        if (finalTitle) {
-
-            typeText(
-                finalTitle,
-                "🎉 HAPPY BIRTHDAY PAPA 🎉",
-                100
-            );
-
-        }
-
-        // Paragraph
-        if (finalText) {
-
-            setTimeout(() => {
-
-                typeText(
-                    finalText,
-                    "Papa, aap hamari zindagi ki woh khoobsurat dua hain jiska shukar hum har din Allah se karte hain. Allah aapko hamesha khush, sehatmand aur salamat rakhe. ❤️",
-                    45
-                );
-
-            }, 1800);
-
-        }
+        smoke.classList.add("smoke-active");
 
     }
 
 
-    // ==========================================
-    // LETTER BY LETTER
-    // ==========================================
+    candlesBlown++;
 
-    function typeText(element, text, speed) {
 
-        element.textContent = "";
+    /* -----------------------------------------
+       Small blow effect
+       ----------------------------------------- */
 
-        let index = 0;
+    createBlowParticles(candle);
 
-        const timer =
-            setInterval(() => {
 
-                element.textContent +=
-                    text[index];
+    /* -----------------------------------------
+       Check all candles
+       ----------------------------------------- */
 
-                index++;
+    if (candlesBlown >= candles.length) {
 
-                if (index >= text.length) {
-
-                    clearInterval(timer);
-
-                }
-
-            }, speed);
+        allCandlesBlown();
 
     }
 
+}
 
-    // ==========================================
-    // OPTIONAL MANUAL CELEBRATION
-    // ==========================================
 
-    // Agar HTML mein button ho:
-    // <button id="celebrateButton">Celebrate</button>
+/* =========================================================
+   BLOW PARTICLES
+   ========================================================= */
 
-    const celebrateButton =
-        document.getElementById(
-            "celebrateButton"
+function createBlowParticles(candle) {
+
+    const rect =
+        candle.getBoundingClientRect();
+
+
+    for (let i = 0; i < 5; i++) {
+
+        const particle =
+            document.createElement("span");
+
+        particle.className =
+            "blow-particle";
+
+
+        particle.style.left =
+            `${rect.left + rect.width / 2}px`;
+
+        particle.style.top =
+            `${rect.top + 5}px`;
+
+
+        particle.style.setProperty(
+            "--particle-x",
+            `${Math.random() * 80 - 40}px`
         );
 
-    if (celebrateButton) {
 
-        celebrateButton.addEventListener(
-            "click",
-            startCelebration
+        particle.style.setProperty(
+            "--particle-y",
+            `${-(Math.random() * 50 + 20)}px`
         );
 
+
+        document.body.appendChild(particle);
+
+
+        setTimeout(() => {
+
+            particle.remove();
+
+        }, 900);
+
     }
+
+}
+
+
+/* =========================================================
+   ALL CANDLES BLOWN
+   ========================================================= */
+
+function allCandlesBlown() {
+
+    candleHint.classList.remove("show");
+
+    cake.classList.add("celebrate");
+
+    setTimeout(() => {
+
+        revealBirthdayText();
+
+    }, 1200);
+
+}
+
+
+/* =========================================================
+   LETTER-BY-LETTER
+   HAPPY BIRTHDAY
+   ========================================================= */
+
+function revealBirthdayText() {
+
+    birthdayMessage.classList.add("show");
+
+    bigBirthdayText.innerHTML = "";
+
+
+    /*
+     * Create every letter separately
+     */
+
+    [...birthdayText].forEach((letter, index) => {
+
+        const span =
+            document.createElement("span");
+
+        span.className =
+            "birthday-letter";
+
+
+        if (letter === " ") {
+
+            span.classList.add("space");
+
+            span.innerHTML = "&nbsp;";
+
+        } else {
+
+            span.textContent = letter;
+
+        }
+
+
+        span.style.animationDelay =
+            `${index * 100}ms`;
+
+
+        bigBirthdayText.appendChild(span);
+
+    });
+
+
+    /*
+     * Show message after letters finish
+     */
+
+    const textTime =
+        birthdayText.length * 100 + 1000;
+
+
+    setTimeout(() => {
+
+        messageCard.classList.add("show");
+
+    }, textTime);
+
+
+    /*
+     * Show wish button
+     */
+
+    setTimeout(() => {
+
+        wishButton.classList.add("show");
+
+    }, textTime + 1000);
+
+
+    birthdayFinished = true;
+
+
+    /*
+     * Celebration messages
+     */
+
+    setTimeout(() => {
+
+        createSpecialBirthdayMessage();
+
+    }, textTime + 500);
+
+}
+
+
+/* =========================================================
+   RANDOM FLOATING BIRTHDAY MESSAGES
+   ========================================================= */
+
+function startFloatingMessages() {
+
+    /*
+     * Keep creating messages slowly.
+     */
+
+    setInterval(() => {
+
+        if (!started) return;
+
+        createFloatingMessage();
+
+    }, 2500);
+
+}
+
+
+/* =========================================================
+   CREATE FLOATING MESSAGE
+   ========================================================= */
+
+function createFloatingMessage() {
+
+    if (!floatingMessages) return;
+
+
+    const message =
+        document.createElement("div");
+
+    message.className =
+        "floating-birthday-message";
+
+
+    message.textContent =
+        papaMessages[
+            Math.floor(
+                Math.random() *
+                papaMessages.length
+            )
+        ];
+
+
+    /*
+     * Random position
+     */
+
+    message.style.left =
+        `${Math.random() * 80 + 5}%`;
+
+    message.style.top =
+        `${Math.random() * 75 + 5}%`;
+
+
+    /*
+     * Random color
+     */
+
+    const colors = [
+        "#ff6b81",
+        "#ff9f43",
+        "#a55eea",
+        "#48dbfb",
+        "#1dd1a1",
+        "#f368e0",
+        "#ffe66d"
+    ];
+
+
+    message.style.color =
+        colors[
+            Math.floor(
+                Math.random() * colors.length
+            )
+        ];
+
+
+    /*
+     * Random size
+     */
+
+    message.style.fontSize =
+        `${Math.random() * 7 + 14}px`;
+
+
+    floatingMessages.appendChild(message);
+
+
+    /*
+     * Remove later
+     */
+
+    setTimeout(() => {
+
+        message.remove();
+
+    }, 4500);
+
+}
+
+
+/* =========================================================
+   SPECIAL FINAL MESSAGE
+   ========================================================= */
+
+function createSpecialBirthdayMessage() {
+
+    if (!floatingMessages) return;
+
+
+    const message =
+        document.createElement("div");
+
+    message.className =
+        "special-floating-message";
+
+
+    message.innerHTML =
+        "Happy Birthday to You,<br>" +
+        "<strong>Dear Papa ❤️</strong>";
+
+
+    message.style.left = "50%";
+
+    message.style.top = "20%";
+
+    floatingMessages.appendChild(message);
+
+
+    setTimeout(() => {
+
+        message.classList.add("visible");
+
+    }, 100);
+
+
+}
+
+
+/* =========================================================
+   MAKE A WISH BUTTON
+   ========================================================= */
+
+if (wishButton) {
+
+    wishButton.addEventListener(
+        "click",
+        function (event) {
+
+            event.stopPropagation();
+
+            makeWish();
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   MAKE A WISH
+   ========================================================= */
+
+function makeWish() {
+
+    /*
+     * Button animation
+     */
+
+    wishButton.classList.add("wish-made");
+
+
+    /*
+     * Create heart particles
+     */
+
+    for (let i = 0; i < 25; i++) {
+
+        setTimeout(() => {
+
+            createHeartParticle();
+
+        }, i * 50);
+
+    }
+
+
+    /*
+     * Change button text
+     */
+
+    setTimeout(() => {
+
+        wishButton.innerHTML =
+            "✨ Your Wish Is Made ❤️";
+
+    }, 400);
+
+}
+
+
+/* =========================================================
+   HEART PARTICLES
+   ========================================================= */
+
+function createHeartParticle() {
+
+    const heart =
+        document.createElement("span");
+
+    heart.className =
+        "heart-particle";
+
+    heart.innerHTML = "♥";
+
+
+    heart.style.left =
+        `${Math.random() * 100}%`;
+
+    heart.style.top =
+        `${60 + Math.random() * 30}%`;
+
+
+    heart.style.setProperty(
+        "--heart-x",
+        `${Math.random() * 160 - 80}px`
+    );
+
+
+    heart.style.setProperty(
+        "--heart-y",
+        `${-(Math.random() * 220 + 80)}px`
+    );
+
+
+    document.body.appendChild(heart);
+
+
+    setTimeout(() => {
+
+        heart.remove();
+
+    }, 2500);
+
+}
+
+
+/* =========================================================
+   RANDOM FLOATING MESSAGE BURST
+   ========================================================= */
+
+function birthdayBurst() {
+
+    for (let i = 0; i < 8; i++) {
+
+        setTimeout(() => {
+
+            createFloatingMessage();
+
+        }, i * 150);
+
+    }
+
+}
+
+
+/* =========================================================
+   OPTIONAL KEYBOARD SUPPORT
+   ========================================================= */
+
+document.addEventListener(
+    "keydown",
+    (event) => {
+
+        /*
+         * Space / Enter starts the experience
+         */
+
+        if (
+            !started &&
+            (
+                event.code === "Space" ||
+                event.code === "Enter"
+            )
+        ) {
+
+            startBirthday();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   PREVENT DOUBLE CLICK ISSUES
+   ========================================================= */
+
+candles.forEach((candle) => {
+
+    candle.addEventListener(
+        "click",
+        (event) => {
+
+            event.stopPropagation();
+
+        }
+    );
 
 });
+
+
+/* =========================================================
+   VISIBILITY HANDLING
+   ========================================================= */
+
+document.addEventListener(
+    "visibilitychange",
+    () => {
+
+        if (!birthdayMusic) return;
+
+
+        if (document.hidden) {
+
+            birthdayMusic.pause();
+
+        } else if (started && !birthdayFinished) {
+
+            birthdayMusic.play().catch(() => {});
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   DEBUG HELPER
+   ========================================================= */
+
+window.blowCandle = blowCandle;
