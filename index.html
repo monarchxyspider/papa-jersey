@@ -5,38 +5,72 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
 
-    <meta name="theme-color"
-          content="#287a66">
+    <meta
+        name="theme-color"
+        content="#0f766e"
+    >
 
-    <meta name="description"
-          content="Home Current - Personal electricity management dashboard.">
+    <meta
+        name="description"
+        content="Home Current — a beautiful personal electricity and expense management dashboard."
+    >
+
+    <meta
+        name="application-name"
+        content="Home Current"
+    >
+
+    <meta
+        name="mobile-web-app-capable"
+        content="yes"
+    >
+
+    <meta
+        name="apple-mobile-web-app-capable"
+        content="yes"
+    >
+
+    <meta
+        name="apple-mobile-web-app-status-bar-style"
+        content="default"
+    >
 
     <title>Home Current</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 
 </head>
 
+
 <body>
 
-<div class="app">
+<div class="app" id="app">
+
 
     <!-- =====================================================
-         HEADER
+         APP HEADER
     ====================================================== -->
 
     <header class="app-header">
 
         <div class="brand">
 
-            <div class="brand-icon">
+            <div
+                class="brand-icon"
+                aria-hidden="true"
+            >
                 ⚡
             </div>
 
-            <div>
+            <div class="brand-content">
 
                 <span class="brand-small">
                     MY HOME
@@ -50,20 +84,28 @@
 
         </div>
 
+
         <button
             type="button"
             class="menu-button"
             id="menuButton"
-            aria-label="Open menu"
+            aria-label="Open navigation menu"
+            aria-controls="sideMenu"
+            aria-expanded="false"
         >
-            ☰
+
+            <span></span>
+            <span></span>
+            <span></span>
+
         </button>
 
     </header>
 
 
+
     <!-- =====================================================
-         MENU
+         MOBILE / SIDE MENU OVERLAY
     ====================================================== -->
 
     <div
@@ -71,6 +113,12 @@
         id="menuOverlay"
         hidden
     ></div>
+
+
+
+    <!-- =====================================================
+         SIDE NAVIGATION
+    ====================================================== -->
 
     <aside
         class="side-menu"
@@ -82,11 +130,14 @@
 
             <div class="brand">
 
-                <div class="brand-icon">
+                <div
+                    class="brand-icon"
+                    aria-hidden="true"
+                >
                     ⚡
                 </div>
 
-                <div>
+                <div class="brand-content">
 
                     <span class="brand-small">
                         MY HOME
@@ -100,10 +151,12 @@
 
             </div>
 
+
             <button
                 type="button"
                 class="menu-close"
                 id="menuClose"
+                aria-label="Close navigation menu"
             >
                 ×
             </button>
@@ -111,66 +164,155 @@
         </div>
 
 
-        <nav class="side-navigation">
+
+        <div class="menu-section-title">
+            NAVIGATION
+        </div>
+
+
+        <nav
+            class="side-navigation"
+            aria-label="Main navigation"
+        >
 
             <button
+                type="button"
                 class="side-nav-item active"
                 data-section="dashboard"
             >
-                🏠
-                <span>Dashboard</span>
+
+                <span class="nav-icon">
+                    🏠
+                </span>
+
+                <span>
+                    Dashboard
+                </span>
+
             </button>
 
+
             <button
+                type="button"
                 class="side-nav-item"
                 data-section="appliances"
             >
-                ⚡
-                <span>Appliances</span>
+
+                <span class="nav-icon">
+                    ⚡
+                </span>
+
+                <span>
+                    Appliances
+                </span>
+
             </button>
 
+
             <button
+                type="button"
                 class="side-nav-item"
                 data-section="schedule"
             >
-                🕐
-                <span>Schedule</span>
+
+                <span class="nav-icon">
+                    🕐
+                </span>
+
+                <span>
+                    Schedule
+                </span>
+
             </button>
 
+
             <button
+                type="button"
                 class="side-nav-item"
                 data-section="expenses"
             >
-                💰
-                <span>Expenses</span>
+
+                <span class="nav-icon">
+                    💰
+                </span>
+
+                <span>
+                    Expenses
+                </span>
+
             </button>
 
+
             <button
+                type="button"
                 class="side-nav-item"
                 data-section="history"
             >
-                📊
-                <span>History</span>
+
+                <span class="nav-icon">
+                    📊
+                </span>
+
+                <span>
+                    History
+                </span>
+
             </button>
 
+
             <button
+                type="button"
                 class="side-nav-item"
                 data-section="settings"
             >
-                ⚙️
-                <span>Settings</span>
+
+                <span class="nav-icon">
+                    ⚙️
+                </span>
+
+                <span>
+                    Settings
+                </span>
+
             </button>
 
         </nav>
 
+
+
+        <div class="menu-footer">
+
+            <div class="menu-footer-icon">
+                ⚡
+            </div>
+
+            <div>
+
+                <strong>
+                    Home Current
+                </strong>
+
+                <span>
+                    Smart energy tracking
+                </span>
+
+            </div>
+
+        </div>
+
     </aside>
 
 
+
     <!-- =====================================================
-         MAIN
+         MAIN CONTENT
     ====================================================== -->
 
-    <main class="app-container">
+    <main
+        class="app-container"
+        id="mainContent"
+    >
+
 
 
         <!-- =================================================
@@ -182,32 +324,55 @@
             class="page-section active-section"
         >
 
-            <div class="welcome-section">
 
-                <div>
+            <!-- HERO -->
 
-                    <p
-                        class="eyebrow"
-                        id="currentDate"
-                    >
-                        Loading date...
-                    </p>
+            <div class="dashboard-hero">
 
-                    <h2>
-                        A little care goes a long way.
-                    </h2>
+                <div class="welcome-section">
 
-                    <p>
-                        Keep your home comfortable while
-                        keeping your electricity under control.
-                    </p>
+                    <div>
+
+                        <p
+                            class="eyebrow"
+                            id="currentDate"
+                        >
+                            Loading date...
+                        </p>
+
+                        <h2>
+                            A little care
+                            <span>
+                                goes a long way.
+                            </span>
+                        </h2>
+
+                        <p>
+                            Keep your home comfortable
+                            while keeping your electricity
+                            under control.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="hero-decoration">
+
+                    <div class="hero-bolt">
+                        ⚡
+                    </div>
 
                 </div>
 
             </div>
 
 
-            <!-- MONTH -->
+
+            <!-- =================================================
+                 CURRENT MONTH
+            ================================================== -->
 
             <article class="card month-card">
 
@@ -225,12 +390,14 @@
 
                     </div>
 
+
                     <button
                         type="button"
                         class="small-button"
                         id="newMonthBtn"
                     >
-                        + Start Now
+                        <span>+</span>
+                        Start Now
                     </button>
 
                 </div>
@@ -262,6 +429,7 @@
                         kWh target
 
                     </span>
+
 
                     <strong id="monthlyPercentage">
                         0%
@@ -301,15 +469,23 @@
             </article>
 
 
-            <!-- STATS -->
+
+            <!-- =================================================
+                 QUICK STATS
+            ================================================== -->
 
             <div class="stats-grid">
 
+
                 <article class="stat-card">
 
-                    <span class="stat-icon">
-                        ☀️
-                    </span>
+                    <div class="stat-top">
+
+                        <span class="stat-icon">
+                            ☀️
+                        </span>
+
+                    </div>
 
                     <span>
                         Today's Usage
@@ -321,18 +497,25 @@
                             0.00
                         </span>
 
-                        kWh
+                        <small>
+                            kWh
+                        </small>
 
                     </strong>
 
                 </article>
 
 
+
                 <article class="stat-card">
 
-                    <span class="stat-icon">
-                        🎯
-                    </span>
+                    <div class="stat-top">
+
+                        <span class="stat-icon">
+                            🎯
+                        </span>
+
+                    </div>
 
                     <span>
                         Today's Target
@@ -344,18 +527,25 @@
                             0.00
                         </span>
 
-                        kWh
+                        <small>
+                            kWh
+                        </small>
 
                     </strong>
 
                 </article>
 
 
+
                 <article class="stat-card">
 
-                    <span class="stat-icon">
-                        📈
-                    </span>
+                    <div class="stat-top">
+
+                        <span class="stat-icon">
+                            📈
+                        </span>
+
+                    </div>
 
                     <span>
                         Estimated Monthly
@@ -367,18 +557,25 @@
                             0.00
                         </span>
 
-                        kWh
+                        <small>
+                            kWh
+                        </small>
 
                     </strong>
 
                 </article>
 
 
+
                 <article class="stat-card">
 
-                    <span class="stat-icon">
-                        💰
-                    </span>
+                    <div class="stat-top">
+
+                        <span class="stat-icon">
+                            💰
+                        </span>
+
+                    </div>
 
                     <span>
                         Today's Expense
@@ -386,7 +583,9 @@
 
                     <strong>
 
-                        Rs.
+                        <small>
+                            Rs.
+                        </small>
 
                         <span id="dashboardSpentToday">
                             0
@@ -399,7 +598,10 @@
             </div>
 
 
-            <!-- DAILY -->
+
+            <!-- =================================================
+                 DAILY CONSUMPTION
+            ================================================== -->
 
             <article class="card">
 
@@ -416,6 +618,7 @@
                         </h3>
 
                     </div>
+
 
                     <span
                         class="status-badge safe"
@@ -450,25 +653,36 @@
                 </div>
 
 
-                <p
-                    class="helper-text"
-                    id="dailyRecommendation"
-                >
-                    Start a month to begin tracking.
-                </p>
+                <div class="daily-meta">
+
+                    <p
+                        class="helper-text"
+                        id="dailyRecommendation"
+                    >
+                        Start a month to begin tracking.
+                    </p>
+
+                </div>
 
             </article>
 
 
-            <!-- ALERTS -->
+
+            <!-- =================================================
+                 ALERTS
+            ================================================== -->
 
             <div
                 id="alertsContainer"
                 class="alerts-container"
+                aria-live="polite"
             ></div>
 
 
-            <!-- QUICK ACTIONS -->
+
+            <!-- =================================================
+                 QUICK ACTIONS
+            ================================================== -->
 
             <article class="card">
 
@@ -492,24 +706,32 @@
                 <div class="quick-actions">
 
                     <button
+                        type="button"
                         class="action-button primary"
                         data-section-target="appliances"
                     >
-                        ⚡ Appliances
+                        <span>⚡</span>
+                        Appliances
                     </button>
 
+
                     <button
+                        type="button"
                         class="action-button secondary"
                         data-section-target="expenses"
                     >
-                        💰 Add Expense
+                        <span>💰</span>
+                        Add Expense
                     </button>
 
+
                     <button
+                        type="button"
                         class="action-button secondary"
                         data-section-target="history"
                     >
-                        📊 History
+                        <span>📊</span>
+                        History
                     </button>
 
                 </div>
@@ -517,7 +739,10 @@
             </article>
 
 
-            <!-- BUDGET -->
+
+            <!-- =================================================
+                 DAILY BUDGET
+            ================================================== -->
 
             <article class="card">
 
@@ -534,6 +759,7 @@
                         </h3>
 
                     </div>
+
 
                     <span class="money-icon">
                         💵
@@ -552,7 +778,9 @@
 
                         <strong>
 
-                            Rs.
+                            <small>
+                                Rs.
+                            </small>
 
                             <span id="dashboardDailyBudget">
                                 0
@@ -571,7 +799,9 @@
 
                         <strong>
 
-                            Rs.
+                            <small>
+                                Rs.
+                            </small>
 
                             <span id="dashboardSpent">
                                 0
@@ -601,6 +831,7 @@
 
             </article>
 
+
         </section>
 
 
@@ -626,10 +857,16 @@
                         My Appliances
                     </h2>
 
+                    <p class="section-description">
+                        Monitor your home's electricity usage.
+                    </p>
+
                 </div>
 
+
                 <span class="live-indicator">
-                    ● LIVE
+                    <span></span>
+                    LIVE
                 </span>
 
             </div>
@@ -637,13 +874,13 @@
 
             <div class="info-banner">
 
-                <span>
+                <span class="info-banner-icon">
                     💡
                 </span>
 
                 <p>
-                    Usage is estimated from appliance wattage
-                    and runtime.
+                    Usage is estimated from appliance
+                    wattage and runtime.
                 </p>
 
             </div>
@@ -679,22 +916,32 @@
                         Electricity Schedule
                     </h2>
 
+                    <p class="section-description">
+                        Plan when your appliances should run.
+                    </p>
+
                 </div>
 
             </div>
 
 
-            <div
-                id="scheduleContainer"
-                class="schedule-list"
-            ></div>
+            <article class="card schedule-card">
+
+                <div
+                    id="scheduleContainer"
+                    class="schedule-list"
+                ></div>
+
+            </article>
 
 
             <button
+                type="button"
                 class="action-button primary full-width"
                 id="saveScheduleBtn"
             >
-                💾 Save Schedule
+                <span>💾</span>
+                Save Schedule
             </button>
 
         </section>
@@ -722,10 +969,17 @@
                         Expenses
                     </h2>
 
+                    <p class="section-description">
+                        Keep track of your household spending.
+                    </p>
+
                 </div>
 
             </div>
 
+
+
+            <!-- BUDGET SUMMARY -->
 
             <article class="card budget-card">
 
@@ -738,7 +992,7 @@
                         </span>
 
                         <strong>
-                            Rs.
+                            <small>Rs.</small>
                             <span id="expenseBudget">
                                 0
                             </span>
@@ -754,7 +1008,7 @@
                         </span>
 
                         <strong>
-                            Rs.
+                            <small>Rs.</small>
                             <span id="expenseSpentToday">
                                 0
                             </span>
@@ -780,6 +1034,9 @@
             </article>
 
 
+
+            <!-- ADD EXPENSE -->
+
             <article class="card">
 
                 <div class="card-header">
@@ -796,14 +1053,19 @@
 
                     </div>
 
+                    <span class="card-header-icon">
+                        +
+                    </span>
+
                 </div>
 
 
                 <form id="expenseForm">
 
+
                     <div class="form-group">
 
-                        <label>
+                        <label for="expenseAmount">
                             Amount (PKR)
                         </label>
 
@@ -812,50 +1074,73 @@
                             type="number"
                             min="0"
                             step="0.01"
+                            inputmode="decimal"
+                            placeholder="0.00"
                             required
                         >
 
                     </div>
 
 
+
                     <div class="form-group">
 
-                        <label>
+                        <label for="expenseCategory">
                             Category
                         </label>
 
                         <select id="expenseCategory">
 
-                            <option>Food</option>
-                            <option>Electricity</option>
-                            <option>Water</option>
-                            <option>Transport</option>
-                            <option>Shopping</option>
-                            <option>Other</option>
+                            <option value="Food">
+                                Food
+                            </option>
+
+                            <option value="Electricity">
+                                Electricity
+                            </option>
+
+                            <option value="Water">
+                                Water
+                            </option>
+
+                            <option value="Transport">
+                                Transport
+                            </option>
+
+                            <option value="Shopping">
+                                Shopping
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
 
                         </select>
 
                     </div>
 
 
+
                     <div class="form-group">
 
-                        <label>
+                        <label for="expenseNote">
                             Note
                         </label>
 
                         <input
                             id="expenseNote"
                             type="text"
+                            maxlength="120"
                             placeholder="What was this expense?"
                         >
 
                     </div>
 
 
+
                     <div class="form-group">
 
-                        <label>
+                        <label for="expenseDate">
                             Date
                         </label>
 
@@ -868,17 +1153,22 @@
                     </div>
 
 
+
                     <button
                         type="submit"
                         class="action-button primary full-width"
                     >
-                        + Add Expense
+                        <span>+</span>
+                        Add Expense
                     </button>
 
                 </form>
 
             </article>
 
+
+
+            <!-- SPENDING OVERVIEW -->
 
             <article class="card">
 
@@ -908,10 +1198,15 @@
                         </span>
 
                         <strong>
-                            Rs.
+
+                            <small>
+                                Rs.
+                            </small>
+
                             <span id="monthlyExpenses">
                                 0
                             </span>
+
                         </strong>
 
                     </div>
@@ -937,10 +1232,15 @@
                         </span>
 
                         <strong>
-                            Rs.
+
+                            <small>
+                                Rs.
+                            </small>
+
                             <span id="averageDailyExpense">
                                 0
                             </span>
+
                         </strong>
 
                     </div>
@@ -949,6 +1249,9 @@
 
             </article>
 
+
+
+            <!-- EXPENSE HISTORY -->
 
             <article class="card">
 
@@ -1001,16 +1304,23 @@
                         Usage History
                     </h2>
 
+                    <p class="section-description">
+                        Review your previous electricity usage.
+                    </p>
+
                 </div>
 
             </div>
 
 
+
+            <!-- DATE -->
+
             <article class="card">
 
                 <div class="form-group">
 
-                    <label>
+                    <label for="historyDate">
                         Select Date
                     </label>
 
@@ -1023,6 +1333,9 @@
 
             </article>
 
+
+
+            <!-- SELECTED DAY -->
 
             <article class="card">
 
@@ -1045,6 +1358,7 @@
 
                 <div class="summary-grid">
 
+
                     <div class="summary-item">
 
                         <span>
@@ -1057,7 +1371,9 @@
                                 0.00
                             </span>
 
-                            kWh
+                            <small>
+                                kWh
+                            </small>
 
                         </strong>
 
@@ -1072,7 +1388,9 @@
 
                         <strong>
 
-                            Rs.
+                            <small>
+                                Rs.
+                            </small>
 
                             <span id="historyExpenses">
                                 0
@@ -1091,7 +1409,9 @@
 
                         <strong>
 
-                            Rs.
+                            <small>
+                                Rs.
+                            </small>
 
                             <span id="historyElectricityCost">
                                 0
@@ -1105,6 +1425,9 @@
 
             </article>
 
+
+
+            <!-- HISTORY LIST -->
 
             <article class="card">
 
@@ -1157,12 +1480,17 @@
                         Settings
                     </h2>
 
+                    <p class="section-description">
+                        Customize your electricity tracking.
+                    </p>
+
                 </div>
 
             </div>
 
 
-            <!-- ENERGY -->
+
+            <!-- ENERGY SETTINGS -->
 
             <article class="card">
 
@@ -1180,12 +1508,16 @@
 
                     </div>
 
+                    <span class="card-header-icon">
+                        ⚡
+                    </span>
+
                 </div>
 
 
                 <div class="form-group">
 
-                    <label>
+                    <label for="monthlyTargetInput">
                         Monthly Target (kWh)
                     </label>
 
@@ -1194,6 +1526,7 @@
                         type="number"
                         min="1"
                         step="0.01"
+                        inputmode="decimal"
                     >
 
                 </div>
@@ -1201,7 +1534,7 @@
 
                 <div class="form-group">
 
-                    <label>
+                    <label for="electricityTariffInput">
                         Electricity Price / Unit (PKR)
                     </label>
 
@@ -1210,6 +1543,7 @@
                         type="number"
                         min="0"
                         step="0.01"
+                        inputmode="decimal"
                     >
 
                 </div>
@@ -1217,7 +1551,7 @@
 
                 <div class="form-group">
 
-                    <label>
+                    <label for="dailyBudgetInput">
                         Daily Expense Budget (PKR)
                     </label>
 
@@ -1226,19 +1560,23 @@
                         type="number"
                         min="0"
                         step="1"
+                        inputmode="numeric"
                     >
 
                 </div>
 
 
                 <button
+                    type="button"
                     class="action-button primary full-width"
                     id="saveEnergySettingsBtn"
                 >
-                    💾 Save Settings
+                    <span>💾</span>
+                    Save Settings
                 </button>
 
             </article>
+
 
 
             <!-- APPLIANCE SETTINGS -->
@@ -1259,6 +1597,10 @@
 
                     </div>
 
+                    <span class="card-header-icon">
+                        🔌
+                    </span>
+
                 </div>
 
 
@@ -1269,18 +1611,21 @@
 
 
                 <button
+                    type="button"
                     class="action-button primary full-width"
                     id="saveApplianceSettingsBtn"
                 >
-                    💾 Save Appliance Settings
+                    <span>💾</span>
+                    Save Appliance Settings
                 </button>
 
             </article>
 
 
-            <!-- DATA -->
 
-            <article class="card">
+            <!-- DATA MANAGEMENT -->
+
+            <article class="card data-card">
 
                 <div class="card-header">
 
@@ -1296,6 +1641,10 @@
 
                     </div>
 
+                    <span class="card-header-icon">
+                        🗄️
+                    </span>
+
                 </div>
 
 
@@ -1309,71 +1658,125 @@
 
 
                 <button
+                    type="button"
                     class="action-button secondary full-width"
                     id="exportDataBtn"
                 >
-                    📤 Export Data
+                    <span>📤</span>
+                    Export Data
                 </button>
 
 
                 <button
+                    type="button"
                     class="danger-button full-width"
                     id="resetDataBtn"
                 >
-                    🗑️ Reset Everything
+                    <span>🗑️</span>
+                    Reset Everything
                 </button>
 
             </article>
 
         </section>
 
+
     </main>
 
 
+
     <!-- =====================================================
-         BOTTOM NAV
+         BOTTOM NAVIGATION
     ====================================================== -->
 
-    <nav class="bottom-nav">
+    <nav
+        class="bottom-nav"
+        aria-label="Bottom navigation"
+    >
+
 
         <button
+            type="button"
             class="nav-item active"
             data-section="dashboard"
         >
-            <span>⌂</span>
-            <small>Home</small>
+
+            <span>
+                ⌂
+            </span>
+
+            <small>
+                Home
+            </small>
+
         </button>
 
+
         <button
+            type="button"
             class="nav-item"
             data-section="appliances"
         >
-            <span>⚡</span>
-            <small>Devices</small>
+
+            <span>
+                ⚡
+            </span>
+
+            <small>
+                Devices
+            </small>
+
         </button>
 
+
         <button
+            type="button"
             class="nav-item"
             data-section="expenses"
         >
-            <span>💰</span>
-            <small>Money</small>
+
+            <span>
+                💰
+            </span>
+
+            <small>
+                Money
+            </small>
+
         </button>
 
+
         <button
+            type="button"
             class="nav-item"
             data-section="history"
         >
-            <span>📊</span>
-            <small>History</small>
+
+            <span>
+                📊
+            </span>
+
+            <small>
+                History
+            </small>
+
         </button>
 
+
         <button
+            type="button"
             class="nav-item"
             data-section="settings"
         >
-            <span>⚙️</span>
-            <small>Settings</small>
+
+            <span>
+                ⚙️
+            </span>
+
+            <small>
+                Settings
+            </small>
+
         </button>
 
     </nav>
@@ -1392,7 +1795,12 @@
     hidden
 >
 
-    <div class="modal">
+    <div
+        class="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="newMonthModalTitle"
+    >
 
         <div class="modal-header">
 
@@ -1402,15 +1810,18 @@
                     NEW MONTH
                 </p>
 
-                <h2>
+                <h2 id="newMonthModalTitle">
                     Start Electricity Tracking
                 </h2>
 
             </div>
 
+
             <button
+                type="button"
                 class="modal-close"
                 data-close-modal="newMonthModal"
+                aria-label="Close"
             >
                 ×
             </button>
@@ -1426,9 +1837,10 @@
         </p>
 
 
+
         <div class="form-group">
 
-            <label>
+            <label for="newMonthName">
                 Month
             </label>
 
@@ -1440,9 +1852,10 @@
         </div>
 
 
+
         <div class="form-group">
 
-            <label>
+            <label for="newMonthDate">
                 Start Date
             </label>
 
@@ -1454,9 +1867,10 @@
         </div>
 
 
+
         <div class="form-group">
 
-            <label>
+            <label for="newMonthUnits">
                 Starting Meter Reading
             </label>
 
@@ -1465,15 +1879,17 @@
                 type="number"
                 min="0"
                 step="0.01"
+                inputmode="decimal"
                 placeholder="Example: 12450"
             >
 
         </div>
 
 
+
         <div class="form-group">
 
-            <label>
+            <label for="newMonthTarget">
                 Monthly Target (kWh)
             </label>
 
@@ -1482,22 +1898,27 @@
                 type="number"
                 min="1"
                 step="0.01"
+                inputmode="decimal"
                 placeholder="Example: 170"
             >
 
         </div>
 
 
+
         <div class="modal-actions">
 
             <button
+                type="button"
                 class="action-button secondary"
                 data-close-modal="newMonthModal"
             >
                 Cancel
             </button>
 
+
             <button
+                type="button"
                 class="action-button primary"
                 id="startNewMonthBtn"
             >
@@ -1513,13 +1934,23 @@
 
 
 <!-- =========================================================
-     TOAST
+     TOAST NOTIFICATION
 ========================================================= -->
 
 <div
     class="toast"
     id="toast"
+    role="status"
+    aria-live="polite"
+    aria-atomic="true"
 >
+
+    <span
+        class="toast-icon"
+        aria-hidden="true"
+    >
+        ✓
+    </span>
 
     <span id="toastMessage">
         Saved
@@ -1528,7 +1959,14 @@
 </div>
 
 
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script src="config.js"></script>
 <script src="script.js"></script>
+
 
 </body>
 
