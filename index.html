@@ -1,318 +1,517 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Home Energy Manager</title>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#287a66"
+    >
 
     <meta
         name="description"
-        content="Personal household electricity and expense management dashboard."
+        content="Beautiful personal home electricity and expense management dashboard."
     >
 
-    <!-- App stylesheet -->
+    <title>Home Current</title>
+
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-    <!-- =========================
-         APP HEADER
-    ========================== -->
+<!-- =========================================================
+     APP
+========================================================= -->
+
+<div class="app">
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
     <header class="app-header">
-        <div class="header-content">
-            <div>
-                <p class="app-label">MY HOME</p>
-                <h1>Energy Manager</h1>
-                <p class="header-subtitle">
-                    Keep electricity below 170 kWh/month
-                </p>
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                ⚡
             </div>
 
-            <button
-                class="icon-button"
-                id="settingsHeaderBtn"
-                type="button"
-                aria-label="Open settings"
-            >
-                ⚙️
-            </button>
+            <div>
+
+                <span class="brand-small">
+                    MY HOME
+                </span>
+
+                <h1>
+                    Home Current
+                </h1>
+
+            </div>
+
         </div>
+
+
+        <button
+            type="button"
+            class="menu-button"
+            id="menuButton"
+            aria-label="Open menu"
+        >
+            ☰
+        </button>
+
     </header>
 
 
-    <!-- =========================
-         MAIN NAVIGATION
-    ========================== -->
-    <nav class="bottom-nav" aria-label="Main navigation">
+    <!-- =====================================================
+         SIDE / MOBILE MENU
+    ====================================================== -->
 
-        <button
-            class="nav-item active"
-            type="button"
-            data-section="dashboard"
-        >
-            <span class="nav-icon">🏠</span>
-            <span>Home</span>
-        </button>
+    <div
+        class="menu-overlay"
+        id="menuOverlay"
+        hidden
+    ></div>
 
-        <button
-            class="nav-item"
-            type="button"
-            data-section="appliances"
-        >
-            <span class="nav-icon">⚡</span>
-            <span>Devices</span>
-        </button>
 
-        <button
-            class="nav-item"
-            type="button"
-            data-section="expenses"
-        >
-            <span class="nav-icon">💰</span>
-            <span>Expenses</span>
-        </button>
+    <aside
+        class="side-menu"
+        id="sideMenu"
+        aria-hidden="true"
+    >
 
-        <button
-            class="nav-item"
-            type="button"
-            data-section="history"
-        >
-            <span class="nav-icon">📅</span>
-            <span>History</span>
-        </button>
+        <div class="side-menu-header">
 
-        <button
-            class="nav-item"
-            type="button"
-            data-section="settings"
-        >
-            <span class="nav-icon">⚙️</span>
-            <span>Settings</span>
-        </button>
+            <div class="brand">
 
-    </nav>
+                <div class="brand-icon">
+                    ⚡
+                </div>
 
+                <div>
+
+                    <span class="brand-small">
+                        MY HOME
+                    </span>
+
+                    <h2>
+                        Home Current
+                    </h2>
+
+                </div>
+
+            </div>
+
+            <button
+                type="button"
+                class="menu-close"
+                id="menuClose"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <nav class="side-navigation">
+
+            <button
+                type="button"
+                class="side-nav-item active"
+                data-section="dashboard"
+            >
+                🏠
+                <span>Dashboard</span>
+            </button>
+
+            <button
+                type="button"
+                class="side-nav-item"
+                data-section="appliances"
+            >
+                ⚡
+                <span>Appliances</span>
+            </button>
+
+            <button
+                type="button"
+                class="side-nav-item"
+                data-section="schedule"
+            >
+                🕐
+                <span>Schedule</span>
+            </button>
+
+            <button
+                type="button"
+                class="side-nav-item"
+                data-section="expenses"
+            >
+                💰
+                <span>Expenses</span>
+            </button>
+
+            <button
+                type="button"
+                class="side-nav-item"
+                data-section="history"
+            >
+                📊
+                <span>History</span>
+            </button>
+
+            <button
+                type="button"
+                class="side-nav-item"
+                data-section="settings"
+            >
+                ⚙️
+                <span>Settings</span>
+            </button>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
 
     <main class="app-container">
 
 
-        <!-- ==================================================
-             DASHBOARD SECTION
-        =================================================== -->
+        <!-- =================================================
+             DASHBOARD
+        ================================================== -->
+
         <section
             id="dashboard"
             class="page-section active-section"
         >
 
-            <div class="section-heading">
+            <div class="welcome-section">
+
                 <div>
-                    <p class="eyebrow">OVERVIEW</p>
-                    <h2>Electricity Dashboard</h2>
+
+                    <p
+                        class="eyebrow"
+                        id="currentDate"
+                    >
+                        Sunday, August 16
+                    </p>
+
+                    <h2>
+                        A little care goes a long way.
+                    </h2>
+
+                    <p>
+                        Keep your home comfortable while
+                        keeping your electricity under control.
+                    </p>
+
                 </div>
 
-                <span
-                    class="status-badge safe"
-                    id="overallStatus"
-                >
-                    ON TRACK
-                </span>
             </div>
 
 
-            <!-- Monthly Electricity -->
-            <article class="card monthly-card">
+            <!-- MONTH CARD -->
 
-                <div class="card-top">
+            <article class="card month-card">
+
+                <div class="month-card-header">
+
                     <div>
-                        <p class="card-label">
-                            Electricity This Month
-                        </p>
+
+                        <span class="card-label">
+                            THIS MONTH
+                        </span>
 
                         <h3>
-                            <span id="monthlyUsage">0.00</span>
-                            <small>
-                                /
-                                <span id="monthlyTargetDisplay">
-                                    170
-                                </span>
-                                kWh
-                            </small>
+                            Electricity Usage
                         </h3>
+
                     </div>
 
-                    <div class="usage-icon">
-                        ⚡
-                    </div>
+                    <button
+                        type="button"
+                        class="small-button"
+                        id="newMonthBtn"
+                    >
+                        + New Month
+                    </button>
+
                 </div>
 
 
-                <div class="progress-container">
+                <div class="usage-big">
 
-                    <div class="progress-track">
-                        <div
-                            class="progress-bar"
-                            id="monthlyProgressBar"
-                            style="width: 0%;"
-                        ></div>
-                    </div>
+                    <strong id="monthlyUsage">
+                        0.00
+                    </strong>
 
-                    <div class="progress-info">
-                        <span id="monthlyPercentage">
-                            0%
+                    <span>
+                        kWh
+                    </span>
+
+                </div>
+
+
+                <div class="usage-target">
+
+                    <span>
+                        of
+                        <strong id="monthlyTargetDisplay">
+                            170
+                        </strong>
+                        kWh target
+                    </span>
+
+                    <strong id="monthlyPercentage">
+                        0%
+                    </strong>
+
+                </div>
+
+
+                <div class="progress-track">
+
+                    <div
+                        class="progress-bar"
+                        id="monthlyProgressBar"
+                    ></div>
+
+                </div>
+
+
+                <div class="remaining-row">
+
+                    <span>
+                        Units remaining
+                    </span>
+
+                    <strong>
+                        <span id="unitsRemaining">
+                            170
                         </span>
-
-                        <span>
-                            <span id="unitsRemaining">
-                                170
-                            </span>
-                            kWh remaining
-                        </span>
-                    </div>
+                        kWh
+                    </strong>
 
                 </div>
 
             </article>
 
 
-            <!-- Quick Statistics -->
+            <!-- STATS -->
+
             <div class="stats-grid">
 
                 <article class="stat-card">
-                    <span class="stat-icon green">☀️</span>
-                    <p>Electricity Today</p>
-                    <strong>
-                        <span id="todayUsage">0.00</span>
-                        kWh
-                    </strong>
-                </article>
 
-                <article class="stat-card">
-                    <span class="stat-icon blue">📊</span>
-                    <p>Units Remaining</p>
+                    <span class="stat-icon">
+                        ☀️
+                    </span>
+
+                    <span>
+                        Today's Usage
+                    </span>
+
                     <strong>
-                        <span id="dashboardRemaining">
-                            170
+                        <span id="todayUsage">
+                            0.00
                         </span>
                         kWh
                     </strong>
+
                 </article>
 
+
                 <article class="stat-card">
-                    <span class="stat-icon orange">🎯</span>
-                    <p>Today's Target</p>
+
+                    <span class="stat-icon">
+                        🎯
+                    </span>
+
+                    <span>
+                        Today's Target
+                    </span>
+
                     <strong>
                         <span id="todayTarget">
                             5.67
                         </span>
                         kWh
                     </strong>
+
                 </article>
 
+
                 <article class="stat-card">
-                    <span class="stat-icon purple">📈</span>
-                    <p>Estimated Monthly</p>
+
+                    <span class="stat-icon">
+                        📈
+                    </span>
+
+                    <span>
+                        Estimated Monthly
+                    </span>
+
                     <strong>
                         <span id="estimatedMonthlyUsage">
                             0.00
                         </span>
                         kWh
                     </strong>
+
+                </article>
+
+
+                <article class="stat-card">
+
+                    <span class="stat-icon">
+                        💰
+                    </span>
+
+                    <span>
+                        Today's Expense
+                    </span>
+
+                    <strong>
+                        Rs.
+                        <span id="dashboardSpentToday">
+                            0
+                        </span>
+                    </strong>
+
                 </article>
 
             </div>
 
 
-            <!-- Daily Progress -->
+            <!-- DAILY CARD -->
+
             <article class="card">
 
                 <div class="card-header">
+
                     <div>
-                        <p class="card-label">
-                            Daily Consumption
-                        </p>
+
+                        <span class="card-label">
+                            TODAY
+                        </span>
+
                         <h3>
-                            <span id="dailyUsageValue">
-                                0.00
-                            </span>
-                            kWh
+                            Daily Consumption
                         </h3>
+
                     </div>
 
                     <span
-                        class="small-status"
+                        class="status-badge safe"
                         id="dailyStatus"
                     >
-                        Safe
+                        SAFE
                     </span>
-                </div>
-
-                <div class="progress-container">
-
-                    <div class="progress-track">
-                        <div
-                            class="progress-bar daily-progress"
-                            id="dailyProgressBar"
-                            style="width: 0%;"
-                        ></div>
-                    </div>
 
                 </div>
 
-                <p class="helper-text" id="dailyRecommendation">
+
+                <div class="daily-number">
+
+                    <strong id="dailyUsageValue">
+                        0.00
+                    </strong>
+
+                    <span>
+                        kWh
+                    </span>
+
+                </div>
+
+
+                <div class="progress-track">
+
+                    <div
+                        class="progress-bar daily-progress"
+                        id="dailyProgressBar"
+                    ></div>
+
+                </div>
+
+
+                <p
+                    class="helper-text"
+                    id="dailyRecommendation"
+                >
                     Recommended maximum:
-                    5.67 kWh today
+                    5.67 kWh today.
                 </p>
 
             </article>
 
 
-            <!-- Alerts -->
+            <!-- ALERTS -->
+
             <div
                 id="alertsContainer"
                 class="alerts-container"
-            >
-                <!-- JavaScript will add alerts here -->
-            </div>
+            ></div>
 
 
-            <!-- Quick Actions -->
+            <!-- QUICK ACTIONS -->
+
             <article class="card">
 
                 <div class="card-header">
+
                     <div>
-                        <p class="card-label">
+
+                        <span class="card-label">
                             QUICK ACTIONS
-                        </p>
-                        <h3>Manage Home</h3>
+                        </span>
+
+                        <h3>
+                            Manage Home
+                        </h3>
+
                     </div>
+
                 </div>
+
 
                 <div class="quick-actions">
 
                     <button
-                        class="action-button primary"
                         type="button"
+                        class="action-button primary"
                         data-section-target="appliances"
                     >
                         ⚡ Appliances
                     </button>
 
                     <button
-                        class="action-button secondary"
                         type="button"
+                        class="action-button secondary"
                         data-section-target="expenses"
                     >
                         💰 Add Expense
                     </button>
 
                     <button
-                        class="action-button secondary"
                         type="button"
+                        class="action-button secondary"
                         data-section-target="history"
                     >
-                        📅 View History
+                        📊 History
                     </button>
 
                 </div>
@@ -320,16 +519,22 @@
             </article>
 
 
-            <!-- Expense Summary -->
-            <article class="card expense-summary-card">
+            <!-- EXPENSE SUMMARY -->
+
+            <article class="card">
 
                 <div class="card-header">
 
                     <div>
-                        <p class="card-label">
-                            DAILY EXPENSE TRACKER
-                        </p>
-                        <h3>Today's Budget</h3>
+
+                        <span class="card-label">
+                            MONEY
+                        </span>
+
+                        <h3>
+                            Today's Budget
+                        </h3>
+
                     </div>
 
                     <span class="money-icon">
@@ -338,36 +543,54 @@
 
                 </div>
 
+
                 <div class="expense-main">
 
                     <div>
-                        <span>Budget</span>
+
+                        <span>
+                            Budget
+                        </span>
+
                         <strong>
                             Rs.
                             <span id="dashboardDailyBudget">
                                 600
                             </span>
                         </strong>
+
                     </div>
 
+
                     <div>
-                        <span>Spent</span>
+
+                        <span>
+                            Spent
+                        </span>
+
                         <strong>
                             Rs.
-                            <span id="dashboardSpentToday">
+                            <span id="dashboardSpent">
                                 0
                             </span>
                         </strong>
+
                     </div>
 
+
                     <div>
-                        <span>Remaining</span>
-                        <strong class="positive-money">
-                            Rs.
-                            <span id="dashboardRemainingBudget">
-                                600
-                            </span>
+
+                        <span>
+                            Remaining
+                        </span>
+
+                        <strong
+                            id="dashboardRemainingBudget"
+                            class="positive-money"
+                        >
+                            Rs. 600
                         </strong>
+
                     </div>
 
                 </div>
@@ -378,9 +601,10 @@
 
 
 
-        <!-- ==================================================
-             APPLIANCES SECTION
-        =================================================== -->
+        <!-- =================================================
+             APPLIANCES
+        ================================================== -->
+
         <section
             id="appliances"
             class="page-section"
@@ -389,8 +613,15 @@
             <div class="section-heading">
 
                 <div>
-                    <p class="eyebrow">CONTROL CENTER</p>
-                    <h2>My Appliances</h2>
+
+                    <p class="eyebrow">
+                        CONTROL CENTER
+                    </p>
+
+                    <h2>
+                        My Appliances
+                    </h2>
+
                 </div>
 
                 <span class="live-indicator">
@@ -401,717 +632,59 @@
 
 
             <div class="info-banner">
-                <span>💡</span>
+
+                <span>
+                    💡
+                </span>
+
                 <p>
-                    Appliance consumption is an estimate.
-                    Your electricity meter is the final source
-                    of truth.
+                    Appliance usage is estimated from wattage
+                    and runtime. Your actual meter is the
+                    final source of truth.
                 </p>
+
             </div>
 
 
-            <!-- Appliance Cards -->
             <div
                 id="appliancesContainer"
                 class="appliances-grid"
-            >
-
-                <!-- Fan 1 -->
-                <article
-                    class="appliance-card"
-                    data-appliance-id="fan1"
-                >
-
-                    <div class="appliance-header">
-
-                        <div class="appliance-icon">
-                            🌀
-                        </div>
-
-                        <div class="appliance-title">
-                            <h3>Fan 1</h3>
-
-                            <span
-                                class="appliance-status off"
-                                data-status
-                            >
-                                OFF
-                            </span>
-                        </div>
-
-                    </div>
-
-                    <div class="appliance-details">
-
-                        <div>
-                            <span>Wattage</span>
-                            <strong>
-                                <span data-wattage>75</span> W
-                            </strong>
-                        </div>
-
-                        <div>
-                            <span>Today</span>
-                            <strong>
-                                <span data-today-usage>
-                                    0.00
-                                </span>
-                                kWh
-                            </strong>
-                        </div>
-
-                        <div>
-                            <span>Runtime</span>
-                            <strong data-runtime>
-                                00h 00m
-                            </strong>
-                        </div>
-
-                    </div>
-
-                    <div
-                        class="running-display"
-                        data-running-display
-                    >
-                        Running:
-                        <strong>00:00:00</strong>
-                    </div>
-
-                    <button
-                        class="appliance-toggle off"
-                        type="button"
-                        data-toggle
-                    >
-                        TURN ON
-                    </button>
-
-                </article>
-
-
-                <!-- Fan 2 -->
-                <article
-                    class="appliance-card"
-                    data-appliance-id="fan2"
-                >
-
-                    <div class="appliance-header">
-
-                        <div class="appliance-icon">
-                            🌀
-                        </div>
-
-                        <div class="appliance-title">
-                            <h3>Fan 2</h3>
-
-                            <span
-                                class="appliance-status off"
-                                data-status
-                            >
-                                OFF
-                            </span>
-                        </div>
-
-                    </div>
-
-                    <div class="appliance-details">
-
-                        <div>
-                            <span>Wattage</span>
-                            <strong>
-                                <span data-wattage>75</span> W
-                            </strong>
-                        </div>
-
-                        <div>
-                            <span>Today</span>
-                            <strong>
-                                <span data-today-usage>
-                                    0.00
-                                </span>
-                                kWh
-                            </strong>
-                        </div>
-
-                        <div>
-                            <span>Runtime</span>
-                            <strong data-runtime>
-                                00h 00m
-                            </strong>
-                        </div>
-
-                    </div>
-
-                    <div
-                        class="running-display"
-                        data-running-display
-                    >
-                        Running:
-                        <strong>00:00:00</strong>
-                    </div>
-
-                    <button
-                        class="appliance-toggle off"
-                        type="button"
-                        data-toggle
-                    >
-                        TURN ON
-                    </button>
-
-                </article>
-
-
-                <!-- TCL TV -->
-                <article
-                    class="appliance-card"
-                    data-appliance-id="tv"
-                >
-
-                    <div class="appliance-header">
-
-                        <div class="appliance-icon">
-                            📺
-                        </div>
-
-                        <div class="appliance-title">
-                            <h3>TCL Medium TV</h3>
-
-                            <span
-                                class="appliance-status off"
-                                data-status
-                            >
-                                OFF
-                            </span>
-                        </div>
-
-                    </div>
-
-                    <div class="appliance-details">
-
-                        <div>
-                            <span>Wattage</span>
-                            <strong>
-                                <span data-wattage>100</span> W
-                            </strong>
-                        </div>
-
-                        <div>
-                            <span>Today</span>
-                            <strong>
-                                <span data-today-usage>
-                                    0.00
-                                </span>
-                                kWh
-                            </strong>
-                        </div>
-
-                        <div>
-                            <span>Runtime</span>
-                            <strong data-runtime>
-                                00h 00m
-                            </strong>
-                        </div>
-
-                    </div>
-
-                    <div
-                        class="running-display"
-                        data-running-display
-                    >
-                        Running:
-                        <strong>00:00:00</strong>
-                    </div>
-
-                    <button
-                        class="appliance-toggle off"
-                        type="button"
-                        data-toggle
-                    >
-                        TURN ON
-                    </button>
-
-                </article>
-
-
-                <!-- Refrigerator -->
-                <article
-                    class="appliance-card"
-                    data-appliance-id="refrigerator"
-                >
-
-                    <div class="appliance-header">
-
-                        <div class="appliance-icon">
-                            🧊
-                        </div>
-
-                        <div class="appliance-title">
-                            <h3>Old Refrigerator</h3>
-
-                            <span
-                                class="appliance-status off"
-                                data-status
-                            >
-                                OFF
-                            </span>
-                        </div>
-
-                    </div>
-
-                    <div class="appliance-details">
-
-                        <div>
-                            <span>Wattage</span>
-                            <strong>
-                                <span data-wattage>150</span> W
-                            </strong>
-                        </div>
-
-                        <div>
-                            <span>Duty Cycle</span>
-                            <strong>
-                                <span data-duty-cycle>40</span>%
-                            </strong>
-                        </div>
-
-                        <div>
-                            <span>Daily Est.</span>
-                            <strong>
-                                <span data-today-usage>
-                                    0.00
-                                </span>
-                                kWh
-                            </strong>
-                        </div>
-
-                    </div>
-
-                    <div class="appliance-special">
-
-                        <label class="switch-row">
-                            <span>24-Hour Appliance</span>
-
-                            <input
-                                type="checkbox"
-                                data-24hour
-                            >
-
-                        </label>
-
-                    </div>
-
-                    <button
-                        class="appliance-toggle off"
-                        type="button"
-                        data-toggle
-                    >
-                        TURN ON
-                    </button>
-
-                </article>
-
-
-                <!-- Water Pump -->
-                <article
-                    class="appliance-card"
-                    data-appliance-id="pump"
-                >
-
-                    <div class="appliance-header">
-
-                        <div class="appliance-icon">
-                            💧
-                        </div>
-
-                        <div class="appliance-title">
-                            <h3>Water Pump</h3>
-
-                            <span
-                                class="appliance-status off"
-                                data-status
-                            >
-                                OFF
-                            </span>
-                        </div>
-
-                    </div>
-
-                    <div class="appliance-details">
-
-                        <div>
-                            <span>Wattage</span>
-                            <strong>
-                                <span data-wattage>750</span> W
-                            </strong>
-                        </div>
-
-                        <div>
-                            <span>Today</span>
-                            <strong>
-                                <span data-today-usage>
-                                    0.00
-                                </span>
-                                kWh
-                            </strong>
-                        </div>
-
-                        <div>
-                            <span>Runtime</span>
-                            <strong data-runtime>
-                                00h 00m
-                            </strong>
-                        </div>
-
-                    </div>
-
-                    <div class="quick-use-buttons">
-
-                        <button
-                            type="button"
-                            class="small-action"
-                            data-quick-use="pump"
-                            data-minutes="30"
-                        >
-                            Pump Used 30 min
-                        </button>
-
-                        <button
-                            type="button"
-                            class="small-action"
-                            data-quick-use="pump"
-                            data-minutes="40"
-                        >
-                            Pump Used 40 min
-                        </button>
-
-                    </div>
-
-                    <button
-                        class="appliance-toggle off"
-                        type="button"
-                        data-toggle
-                    >
-                        TURN ON
-                    </button>
-
-                </article>
-
-
-                <!-- Air Cooler -->
-                <article
-                    class="appliance-card"
-                    data-appliance-id="cooler"
-                >
-
-                    <div class="appliance-header">
-
-                        <div class="appliance-icon">
-                            ❄️
-                        </div>
-
-                        <div class="appliance-title">
-                            <h3>Air Cooler</h3>
-
-                            <span
-                                class="appliance-status off"
-                                data-status
-                            >
-                                OFF
-                            </span>
-                        </div>
-
-                    </div>
-
-                    <div class="appliance-details">
-
-                        <div>
-                            <span>Wattage</span>
-                            <strong>
-                                <span data-wattage>200</span> W
-                            </strong>
-                        </div>
-
-                        <div>
-                            <span>Today</span>
-                            <strong>
-                                <span data-today-usage>
-                                    0.00
-                                </span>
-                                kWh
-                            </strong>
-                        </div>
-
-                        <div>
-                            <span>Runtime</span>
-                            <strong data-runtime>
-                                00h 00m
-                            </strong>
-                        </div>
-
-                    </div>
-
-                    <div
-                        class="running-display"
-                        data-running-display
-                    >
-                        Running:
-                        <strong>00:00:00</strong>
-                    </div>
-
-                    <button
-                        class="appliance-toggle off"
-                        type="button"
-                        data-toggle
-                    >
-                        TURN ON
-                    </button>
-
-                </article>
-
-
-                <!-- Oven -->
-                <article
-                    class="appliance-card"
-                    data-appliance-id="oven"
-                >
-
-                    <div class="appliance-header">
-
-                        <div class="appliance-icon">
-                            🔥
-                        </div>
-
-                        <div class="appliance-title">
-                            <h3>Oven</h3>
-
-                            <span
-                                class="appliance-status off"
-                                data-status
-                            >
-                                OFF
-                            </span>
-                        </div>
-
-                    </div>
-
-                    <div class="appliance-details">
-
-                        <div>
-                            <span>Wattage</span>
-                            <strong>
-                                <span data-wattage>1500</span> W
-                            </strong>
-                        </div>
-
-                        <div>
-                            <span>Today</span>
-                            <strong>
-                                <span data-today-usage>
-                                    0.00
-                                </span>
-                                kWh
-                            </strong>
-                        </div>
-
-                        <div>
-                            <span>Runtime</span>
-                            <strong data-runtime>
-                                00h 00m
-                            </strong>
-                        </div>
-
-                    </div>
-
-                    <button
-                        type="button"
-                        class="small-action full-width"
-                        data-oven-use
-                    >
-                        🔥 Oven Used
-                    </button>
-
-                    <button
-                        class="appliance-toggle off"
-                        type="button"
-                        data-toggle
-                    >
-                        TURN ON
-                    </button>
-
-                </article>
-
-
-                <!-- Lights -->
-                <article
-                    class="appliance-card"
-                    data-appliance-id="lights"
-                >
-
-                    <div class="appliance-header">
-
-                        <div class="appliance-icon">
-                            💡
-                        </div>
-
-                        <div class="appliance-title">
-                            <h3>Lights / Bulbs</h3>
-
-                            <span
-                                class="appliance-status off"
-                                data-status
-                            >
-                                OFF
-                            </span>
-                        </div>
-
-                    </div>
-
-                    <div class="appliance-details">
-
-                        <div>
-                            <span>Wattage</span>
-                            <strong>
-                                <span data-wattage>60</span> W
-                            </strong>
-                        </div>
-
-                        <div>
-                            <span>Today</span>
-                            <strong>
-                                <span data-today-usage>
-                                    0.00
-                                </span>
-                                kWh
-                            </strong>
-                        </div>
-
-                        <div>
-                            <span>Runtime</span>
-                            <strong data-runtime>
-                                00h 00m
-                            </strong>
-                        </div>
-
-                    </div>
-
-                    <div
-                        class="running-display"
-                        data-running-display
-                    >
-                        Running:
-                        <strong>00:00:00</strong>
-                    </div>
-
-                    <button
-                        class="appliance-toggle off"
-                        type="button"
-                        data-toggle
-                    >
-                        TURN ON
-                    </button>
-
-                </article>
-
-            </div>
+            ></div>
 
         </section>
 
 
 
-        <!-- ==================================================
-             ELECTRICITY SCHEDULE
-        =================================================== -->
+        <!-- =================================================
+             SCHEDULE
+        ================================================== -->
+
         <section
             id="schedule"
             class="page-section"
         >
 
             <div class="section-heading">
+
                 <div>
-                    <p class="eyebrow">DAILY PLAN</p>
-                    <h2>My Electricity Schedule</h2>
+
+                    <p class="eyebrow">
+                        DAILY PLAN
+                    </p>
+
+                    <h2>
+                        Electricity Schedule
+                    </h2>
+
                 </div>
-            </div>
 
-
-            <div class="info-banner">
-                <span>🎯</span>
-                <p>
-                    Suggested schedule designed to help stay
-                    under your monthly electricity target.
-                </p>
             </div>
 
 
             <div
                 id="scheduleContainer"
                 class="schedule-list"
-            >
-
-                <article class="schedule-card">
-                    <div class="schedule-time">
-                        🌅
-                        <h3>Morning</h3>
-                    </div>
-
-                    <textarea
-                        class="schedule-text"
-                        data-schedule="morning"
-                        rows="4"
-                    >Water pump: 30–40 minutes
-Fans: only when needed
-TV: OFF unless needed</textarea>
-                </article>
-
-
-                <article class="schedule-card">
-                    <div class="schedule-time">
-                        ☀️
-                        <h3>Afternoon</h3>
-                    </div>
-
-                    <textarea
-                        class="schedule-text"
-                        data-schedule="afternoon"
-                        rows="4"
-                    >Cooler: only when necessary
-Fans: use only occupied rooms
-TV: OFF when nobody is watching</textarea>
-                </article>
-
-
-                <article class="schedule-card">
-                    <div class="schedule-time">
-                        🌇
-                        <h3>Evening</h3>
-                    </div>
-
-                    <textarea
-                        class="schedule-text"
-                        data-schedule="evening"
-                        rows="4"
-                    >TV: maximum 3–4 hours
-Fans: as needed
-Lights: only necessary lights</textarea>
-                </article>
-
-
-                <article class="schedule-card">
-                    <div class="schedule-time">
-                        🌙
-                        <h3>Night</h3>
-                    </div>
-
-                    <textarea
-                        class="schedule-text"
-                        data-schedule="night"
-                        rows="4"
-                    >Turn OFF TV when finished
-Turn OFF unnecessary fans
-Turn OFF cooler when not needed
-Refrigerator remains ON</textarea>
-                </article>
-
-            </div>
+            ></div>
 
 
             <button
@@ -1126,9 +699,10 @@ Refrigerator remains ON</textarea>
 
 
 
-        <!-- ==================================================
-             EXPENSE TRACKER
-        =================================================== -->
+        <!-- =================================================
+             EXPENSES
+        ================================================== -->
+
         <section
             id="expenses"
             class="page-section"
@@ -1137,46 +711,66 @@ Refrigerator remains ON</textarea>
             <div class="section-heading">
 
                 <div>
-                    <p class="eyebrow">MONEY MANAGEMENT</p>
-                    <h2>Daily Expense Tracker</h2>
+
+                    <p class="eyebrow">
+                        MONEY MANAGEMENT
+                    </p>
+
+                    <h2>
+                        Expenses
+                    </h2>
+
                 </div>
 
             </div>
 
 
-            <!-- Expense Budget -->
             <article class="card budget-card">
 
                 <div class="budget-row">
 
                     <div>
-                        <span>Today's Budget</span>
+
+                        <span>
+                            Today's Budget
+                        </span>
+
                         <strong>
                             Rs.
                             <span id="expenseBudget">
                                 600
                             </span>
                         </strong>
+
                     </div>
 
+
                     <div>
-                        <span>Spent Today</span>
+
+                        <span>
+                            Spent
+                        </span>
+
                         <strong>
                             Rs.
                             <span id="expenseSpentToday">
                                 0
                             </span>
                         </strong>
+
                     </div>
 
+
                     <div>
-                        <span>Remaining</span>
-                        <strong
-                            id="expenseRemaining"
-                            class="positive-money"
-                        >
+
+                        <span>
+                            Remaining
+                        </span>
+
+                        <strong id="expenseRemaining">
                             Rs. 600
                         </strong>
+
                     </div>
 
                 </div>
@@ -1184,16 +778,22 @@ Refrigerator remains ON</textarea>
             </article>
 
 
-            <!-- Add Expense -->
             <article class="card">
 
                 <div class="card-header">
+
                     <div>
-                        <p class="card-label">
+
+                        <span class="card-label">
                             ADD EXPENSE
-                        </p>
-                        <h3>New Expense</h3>
+                        </span>
+
+                        <h3>
+                            New Expense
+                        </h3>
+
                     </div>
+
                 </div>
 
 
@@ -1207,7 +807,6 @@ Refrigerator remains ON</textarea>
 
                         <input
                             id="expenseAmount"
-                            name="amount"
                             type="number"
                             min="0"
                             step="0.01"
@@ -1224,34 +823,32 @@ Refrigerator remains ON</textarea>
                             Category
                         </label>
 
-                        <select
-                            id="expenseCategory"
-                            name="category"
-                            required
-                        >
-                            <option value="Food">
+                        <select id="expenseCategory">
+
+                            <option>
                                 Food
                             </option>
 
-                            <option value="Electricity">
+                            <option>
                                 Electricity
                             </option>
 
-                            <option value="Water">
+                            <option>
                                 Water
                             </option>
 
-                            <option value="Transport">
+                            <option>
                                 Transport
                             </option>
 
-                            <option value="Shopping">
+                            <option>
                                 Shopping
                             </option>
 
-                            <option value="Other">
+                            <option>
                                 Other
                             </option>
+
                         </select>
 
                     </div>
@@ -1260,12 +857,11 @@ Refrigerator remains ON</textarea>
                     <div class="form-group">
 
                         <label for="expenseNote">
-                            Note (optional)
+                            Note
                         </label>
 
                         <input
                             id="expenseNote"
-                            name="note"
                             type="text"
                             placeholder="What was this expense?"
                         >
@@ -1281,7 +877,6 @@ Refrigerator remains ON</textarea>
 
                         <input
                             id="expenseDate"
-                            name="date"
                             type="date"
                             required
                         >
@@ -1301,46 +896,69 @@ Refrigerator remains ON</textarea>
             </article>
 
 
-            <!-- Expense Summary -->
             <article class="card">
 
                 <div class="card-header">
+
                     <div>
-                        <p class="card-label">
+
+                        <span class="card-label">
                             SUMMARY
-                        </p>
-                        <h3>Spending Overview</h3>
+                        </span>
+
+                        <h3>
+                            Spending Overview
+                        </h3>
+
                     </div>
+
                 </div>
 
 
                 <div class="summary-grid">
 
                     <div class="summary-item">
-                        <span>Monthly Spending</span>
+
+                        <span>
+                            This Month
+                        </span>
+
                         <strong>
                             Rs.
                             <span id="monthlyExpenses">
                                 0
                             </span>
                         </strong>
+
                     </div>
 
+
                     <div class="summary-item">
-                        <span>Days Tracked</span>
+
+                        <span>
+                            Days Tracked
+                        </span>
+
                         <strong id="daysTracked">
                             0
                         </strong>
+
                     </div>
 
+
                     <div class="summary-item">
-                        <span>Average Daily</span>
+
+                        <span>
+                            Average Daily
+                        </span>
+
                         <strong>
                             Rs.
                             <span id="averageDailyExpense">
                                 0
                             </span>
                         </strong>
+
                     </div>
 
                 </div>
@@ -1348,26 +966,29 @@ Refrigerator remains ON</textarea>
             </article>
 
 
-            <!-- Expense List -->
             <article class="card">
 
                 <div class="card-header">
+
                     <div>
-                        <p class="card-label">
-                            RECENT EXPENSES
-                        </p>
-                        <h3>Expense History</h3>
+
+                        <span class="card-label">
+                            HISTORY
+                        </span>
+
+                        <h3>
+                            Recent Expenses
+                        </h3>
+
                     </div>
+
                 </div>
+
 
                 <div
                     id="expenseList"
                     class="expense-list"
-                >
-                    <p class="empty-state">
-                        No expenses recorded yet.
-                    </p>
-                </div>
+                ></div>
 
             </article>
 
@@ -1375,9 +996,10 @@ Refrigerator remains ON</textarea>
 
 
 
-        <!-- ==================================================
+        <!-- =================================================
              HISTORY
-        =================================================== -->
+        ================================================== -->
+
         <section
             id="history"
             class="page-section"
@@ -1386,14 +1008,20 @@ Refrigerator remains ON</textarea>
             <div class="section-heading">
 
                 <div>
-                    <p class="eyebrow">HISTORY</p>
-                    <h2>Daily History</h2>
+
+                    <p class="eyebrow">
+                        HISTORY
+                    </p>
+
+                    <h2>
+                        Usage History
+                    </h2>
+
                 </div>
 
             </div>
 
 
-            <!-- Date Picker -->
             <article class="card">
 
                 <div class="form-group">
@@ -1412,52 +1040,72 @@ Refrigerator remains ON</textarea>
             </article>
 
 
-            <!-- Selected Day -->
             <article class="card">
 
                 <div class="card-header">
+
                     <div>
-                        <p class="card-label">
-                            ELECTRICITY
-                        </p>
+
+                        <span class="card-label">
+                            SELECTED DAY
+                        </span>
 
                         <h3 id="selectedDateTitle">
                             Today's Details
                         </h3>
+
                     </div>
+
                 </div>
 
 
                 <div class="summary-grid">
 
                     <div class="summary-item">
-                        <span>Electricity Used</span>
+
+                        <span>
+                            Electricity
+                        </span>
+
                         <strong>
                             <span id="historyElectricity">
                                 0.00
                             </span>
                             kWh
                         </strong>
+
                     </div>
 
+
                     <div class="summary-item">
-                        <span>Daily Expenses</span>
+
+                        <span>
+                            Expenses
+                        </span>
+
                         <strong>
                             Rs.
                             <span id="historyExpenses">
                                 0
                             </span>
                         </strong>
+
                     </div>
 
+
                     <div class="summary-item">
-                        <span>Electricity Cost</span>
+
+                        <span>
+                            Electricity Cost
+                        </span>
+
                         <strong>
                             Rs.
                             <span id="historyElectricityCost">
                                 0
                             </span>
                         </strong>
+
                     </div>
 
                 </div>
@@ -1465,72 +1113,28 @@ Refrigerator remains ON</textarea>
             </article>
 
 
-            <!-- Charts -->
-            <article class="card chart-card">
+            <article class="card">
 
                 <div class="card-header">
+
                     <div>
-                        <p class="card-label">
-                            ELECTRICITY
-                        </p>
-                        <h3>Daily Usage</h3>
+
+                        <span class="card-label">
+                            DAILY USAGE
+                        </span>
+
+                        <h3>
+                            Electricity History
+                        </h3>
+
                     </div>
+
                 </div>
 
                 <div
-                    class="chart-container"
-                    id="dailyElectricityChart"
-                >
-                    <canvas
-                        id="dailyElectricityCanvas"
-                    ></canvas>
-                </div>
-
-            </article>
-
-
-            <article class="card chart-card">
-
-                <div class="card-header">
-                    <div>
-                        <p class="card-label">
-                            APPLIANCES
-                        </p>
-                        <h3>Appliance Usage</h3>
-                    </div>
-                </div>
-
-                <div
-                    class="chart-container"
-                    id="applianceChart"
-                >
-                    <canvas
-                        id="applianceUsageCanvas"
-                    ></canvas>
-                </div>
-
-            </article>
-
-
-            <article class="card chart-card">
-
-                <div class="card-header">
-                    <div>
-                        <p class="card-label">
-                            EXPENSES
-                        </p>
-                        <h3>Daily Expenses</h3>
-                    </div>
-                </div>
-
-                <div
-                    class="chart-container"
-                    id="expenseChart"
-                >
-                    <canvas
-                        id="expenseCanvas"
-                    ></canvas>
-                </div>
+                    id="historyList"
+                    class="history-list"
+                ></div>
 
             </article>
 
@@ -1538,9 +1142,10 @@ Refrigerator remains ON</textarea>
 
 
 
-        <!-- ==================================================
+        <!-- =================================================
              SETTINGS
-        =================================================== -->
+        ================================================== -->
+
         <section
             id="settings"
             class="page-section"
@@ -1549,30 +1154,45 @@ Refrigerator remains ON</textarea>
             <div class="section-heading">
 
                 <div>
-                    <p class="eyebrow">CONFIGURATION</p>
-                    <h2>Settings</h2>
+
+                    <p class="eyebrow">
+                        CONFIGURATION
+                    </p>
+
+                    <h2>
+                        Settings
+                    </h2>
+
                 </div>
 
             </div>
 
 
-            <!-- Energy Settings -->
+            <!-- ENERGY -->
+
             <article class="card">
 
                 <div class="card-header">
+
                     <div>
-                        <p class="card-label">
+
+                        <span class="card-label">
                             ELECTRICITY
-                        </p>
-                        <h3>Energy Settings</h3>
+                        </span>
+
+                        <h3>
+                            Energy Settings
+                        </h3>
+
                     </div>
+
                 </div>
 
 
                 <div class="form-group">
 
                     <label for="monthlyTargetInput">
-                        Monthly Electricity Target (kWh)
+                        Monthly Target (kWh)
                     </label>
 
                     <input
@@ -1580,7 +1200,6 @@ Refrigerator remains ON</textarea>
                         type="number"
                         min="1"
                         step="0.01"
-                        value="170"
                     >
 
                 </div>
@@ -1589,7 +1208,7 @@ Refrigerator remains ON</textarea>
                 <div class="form-group">
 
                     <label for="electricityTariffInput">
-                        Electricity Price Per Unit (PKR)
+                        Electricity Price / Unit (PKR)
                     </label>
 
                     <input
@@ -1597,13 +1216,8 @@ Refrigerator remains ON</textarea>
                         type="number"
                         min="0"
                         step="0.01"
-                        placeholder="Enter current tariff"
+                        placeholder="Example: 65"
                     >
-
-                    <p class="helper-text">
-                        Leave empty if you don't want to calculate
-                        electricity cost.
-                    </p>
 
                 </div>
 
@@ -1619,7 +1233,6 @@ Refrigerator remains ON</textarea>
                         type="number"
                         min="0"
                         step="1"
-                        value="600"
                     >
 
                 </div>
@@ -1630,22 +1243,28 @@ Refrigerator remains ON</textarea>
                     class="action-button primary full-width"
                     id="saveEnergySettingsBtn"
                 >
-                    💾 Save Energy Settings
+                    💾 Save Settings
                 </button>
 
             </article>
 
 
-            <!-- Appliance Settings -->
+            <!-- APPLIANCE SETTINGS -->
+
             <article class="card">
 
                 <div class="card-header">
 
                     <div>
-                        <p class="card-label">
+
+                        <span class="card-label">
                             APPLIANCES
-                        </p>
-                        <h3>Appliance Settings</h3>
+                        </span>
+
+                        <h3>
+                            Appliance Wattage
+                        </h3>
+
                     </div>
 
                 </div>
@@ -1654,11 +1273,7 @@ Refrigerator remains ON</textarea>
                 <div
                     id="applianceSettingsContainer"
                     class="settings-list"
-                >
-
-                    <!-- JavaScript will generate settings -->
-
-                </div>
+                ></div>
 
 
                 <button
@@ -1672,74 +1287,43 @@ Refrigerator remains ON</textarea>
             </article>
 
 
-            <!-- Refrigerator -->
+            <!-- DATA -->
+
             <article class="card">
 
                 <div class="card-header">
 
                     <div>
-                        <p class="card-label">
-                            REFRIGERATOR
-                        </p>
-                        <h3>24-Hour Appliance</h3>
-                    </div>
 
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="fridgeDutyCycleInput">
-                        Estimated Compressor Duty Cycle (%)
-                    </label>
-
-                    <input
-                        id="fridgeDutyCycleInput"
-                        type="number"
-                        min="1"
-                        max="100"
-                        step="1"
-                        value="40"
-                    >
-
-                    <p class="helper-text">
-                        Example: 40% means the compressor is estimated
-                        to run for about 40% of the day.
-                    </p>
-
-                </div>
-
-
-                <button
-                    type="button"
-                    class="action-button primary full-width"
-                    id="saveFridgeSettingsBtn"
-                >
-                    Save Refrigerator Setting
-                </button>
-
-            </article>
-
-
-            <!-- App Settings -->
-            <article class="card">
-
-                <div class="card-header">
-
-                    <div>
-                        <p class="card-label">
+                        <span class="card-label">
                             DATA
-                        </p>
-                        <h3>App Data</h3>
+                        </span>
+
+                        <h3>
+                            Your Data
+                        </h3>
+
                     </div>
 
                 </div>
 
 
                 <p class="helper-text">
-                    Your data is stored locally in your browser.
-                    Refreshing the page will not remove it.
+
+                    Your data is saved inside this browser.
+                    GitHub Pages does not need a database for
+                    this personal version.
+
                 </p>
+
+
+                <button
+                    type="button"
+                    class="action-button secondary full-width"
+                    id="exportDataBtn"
+                >
+                    📤 Export Data
+                </button>
 
 
                 <button
@@ -1747,175 +1331,229 @@ Refrigerator remains ON</textarea>
                     class="danger-button full-width"
                     id="resetDataBtn"
                 >
-                    🗑️ Reset All Data
+                    🗑️ Reset Everything
                 </button>
 
             </article>
 
         </section>
 
-
     </main>
 
 
 
-    <!-- ==================================================
-         OVEN MODAL
-    =================================================== -->
-    <div
-        class="modal-overlay"
-        id="ovenModal"
-        hidden
-    >
+    <!-- =====================================================
+         BOTTOM NAV
+    ====================================================== -->
 
-        <div class="modal">
+    <nav class="bottom-nav">
 
-            <div class="modal-header">
+        <button
+            type="button"
+            class="nav-item active"
+            data-section="dashboard"
+        >
+            <span>⌂</span>
+            <small>
+                Home
+            </small>
+        </button>
 
-                <div>
-                    <p class="eyebrow">OVEN</p>
-                    <h2>Oven Used</h2>
-                </div>
 
-                <button
-                    type="button"
-                    class="modal-close"
-                    data-close-modal="ovenModal"
-                >
-                    ×
-                </button>
+        <button
+            type="button"
+            class="nav-item"
+            data-section="appliances"
+        >
+            <span>⚡</span>
+            <small>
+                Devices
+            </small>
+        </button>
+
+
+        <button
+            type="button"
+            class="nav-item"
+            data-section="expenses"
+        >
+            <span>💰</span>
+            <small>
+                Money
+            </small>
+        </button>
+
+
+        <button
+            type="button"
+            class="nav-item"
+            data-section="history"
+        >
+            <span>📊</span>
+            <small>
+                History
+            </small>
+        </button>
+
+
+        <button
+            type="button"
+            class="nav-item"
+            data-section="settings"
+        >
+            <span>⚙️</span>
+            <small>
+                Settings
+            </small>
+        </button>
+
+    </nav>
+
+</div>
+
+
+
+<!-- =========================================================
+     NEW MONTH MODAL
+========================================================= -->
+
+<div
+    class="modal-overlay"
+    id="newMonthModal"
+    hidden
+>
+
+    <div class="modal">
+
+        <div class="modal-header">
+
+            <div>
+
+                <p class="eyebrow">
+                    NEW MONTH
+                </p>
+
+                <h2>
+                    Start a New Month
+                </h2>
 
             </div>
-
-
-            <div class="form-group">
-
-                <label for="ovenMinutes">
-                    How many minutes?
-                </label>
-
-                <input
-                    id="ovenMinutes"
-                    type="number"
-                    min="1"
-                    step="1"
-                    placeholder="30"
-                >
-
-            </div>
-
 
             <button
                 type="button"
-                class="action-button primary full-width"
-                id="confirmOvenBtn"
+                class="modal-close"
+                data-close-modal="newMonthModal"
             >
-                Calculate Usage
+                ×
+            </button>
+
+        </div>
+
+
+        <p class="modal-text">
+
+            Start a fresh electricity cycle. Your previous
+            month's data will remain available in History.
+
+        </p>
+
+
+        <div class="form-group">
+
+            <label for="newMonthName">
+                Month
+            </label>
+
+            <input
+                id="newMonthName"
+                type="month"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="newMonthUnits">
+                Starting Meter Reading (optional)
+            </label>
+
+            <input
+                id="newMonthUnits"
+                type="number"
+                min="0"
+                step="0.01"
+                placeholder="Example: 12450"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="newMonthTarget">
+                Monthly Target (kWh)
+            </label>
+
+            <input
+                id="newMonthTarget"
+                type="number"
+                min="1"
+                step="0.01"
+            >
+
+        </div>
+
+
+        <div class="modal-actions">
+
+            <button
+                type="button"
+                class="action-button secondary"
+                data-close-modal="newMonthModal"
+            >
+                Cancel
+            </button>
+
+            <button
+                type="button"
+                class="action-button primary"
+                id="startNewMonthBtn"
+            >
+                Start Month
             </button>
 
         </div>
 
     </div>
 
-
-
-    <!-- ==================================================
-         CONFIRM RESET MODAL
-    =================================================== -->
-    <div
-        class="modal-overlay"
-        id="resetModal"
-        hidden
-    >
-
-        <div class="modal">
-
-            <div class="modal-header">
-
-                <div>
-                    <p class="eyebrow">WARNING</p>
-                    <h2>Reset All Data?</h2>
-                </div>
-
-                <button
-                    type="button"
-                    class="modal-close"
-                    data-close-modal="resetModal"
-                >
-                    ×
-                </button>
-
-            </div>
-
-
-            <p class="modal-text">
-                This will permanently delete appliance usage,
-                expenses, settings and history from this browser.
-            </p>
-
-
-            <div class="modal-actions">
-
-                <button
-                    type="button"
-                    class="action-button secondary"
-                    data-close-modal="resetModal"
-                >
-                    Cancel
-                </button>
-
-                <button
-                    type="button"
-                    class="danger-button"
-                    id="confirmResetBtn"
-                >
-                    Yes, Reset Data
-                </button>
-
-            </div>
-
-        </div>
-
-    </div>
+</div>
 
 
 
-    <!-- ==================================================
-         TOAST / NOTIFICATION
-    =================================================== -->
-    <div
-        id="toast"
-        class="toast"
-        role="status"
-        aria-live="polite"
-    >
-        <span id="toastMessage">
-            Saved
-        </span>
-    </div>
+<!-- =========================================================
+     TOAST
+========================================================= -->
+
+<div
+    class="toast"
+    id="toast"
+>
+
+    <span id="toastMessage">
+        Saved
+    </span>
+
+</div>
 
 
 
-    <!-- ==================================================
-         FOOTER
-    =================================================== -->
-    <footer class="app-footer">
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
 
-        <p>
-            Estimated Electricity Usage
-        </p>
-
-        <small>
-            Actual electricity meter reading is the final source
-            of truth.
-        </small>
-
-    </footer>
-
-
-
-    <!-- Main JavaScript -->
-    <script src="script.js"></script>
+<script src="config.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
