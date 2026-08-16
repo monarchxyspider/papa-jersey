@@ -1,23 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="theme-color"
-        content="#287a66"
-    >
+    <meta name="theme-color"
+          content="#287a66">
 
-    <meta
-        name="description"
-        content="Beautiful personal home electricity and expense management dashboard."
-    >
+    <meta name="description"
+          content="Home Current - Personal electricity management dashboard.">
 
     <title>Home Current</title>
 
@@ -26,10 +21,6 @@
 </head>
 
 <body>
-
-<!-- =========================================================
-     APP
-========================================================= -->
 
 <div class="app">
 
@@ -59,7 +50,6 @@
 
         </div>
 
-
         <button
             type="button"
             class="menu-button"
@@ -73,7 +63,7 @@
 
 
     <!-- =====================================================
-         SIDE / MOBILE MENU
+         MENU
     ====================================================== -->
 
     <div
@@ -81,7 +71,6 @@
         id="menuOverlay"
         hidden
     ></div>
-
 
     <aside
         class="side-menu"
@@ -125,7 +114,6 @@
         <nav class="side-navigation">
 
             <button
-                type="button"
                 class="side-nav-item active"
                 data-section="dashboard"
             >
@@ -134,7 +122,6 @@
             </button>
 
             <button
-                type="button"
                 class="side-nav-item"
                 data-section="appliances"
             >
@@ -143,7 +130,6 @@
             </button>
 
             <button
-                type="button"
                 class="side-nav-item"
                 data-section="schedule"
             >
@@ -152,7 +138,6 @@
             </button>
 
             <button
-                type="button"
                 class="side-nav-item"
                 data-section="expenses"
             >
@@ -161,7 +146,6 @@
             </button>
 
             <button
-                type="button"
                 class="side-nav-item"
                 data-section="history"
             >
@@ -170,7 +154,6 @@
             </button>
 
             <button
-                type="button"
                 class="side-nav-item"
                 data-section="settings"
             >
@@ -207,7 +190,7 @@
                         class="eyebrow"
                         id="currentDate"
                     >
-                        Sunday, August 16
+                        Loading date...
                     </p>
 
                     <h2>
@@ -224,7 +207,7 @@
             </div>
 
 
-            <!-- MONTH CARD -->
+            <!-- MONTH -->
 
             <article class="card month-card">
 
@@ -233,11 +216,11 @@
                     <div>
 
                         <span class="card-label">
-                            THIS MONTH
+                            CURRENT MONTH
                         </span>
 
-                        <h3>
-                            Electricity Usage
+                        <h3 id="currentMonthName">
+                            No Month Started
                         </h3>
 
                     </div>
@@ -247,7 +230,7 @@
                         class="small-button"
                         id="newMonthBtn"
                     >
-                        + New Month
+                        + Start Now
                     </button>
 
                 </div>
@@ -269,11 +252,15 @@
                 <div class="usage-target">
 
                     <span>
+
                         of
+
                         <strong id="monthlyTargetDisplay">
-                            170
+                            0
                         </strong>
+
                         kWh target
+
                     </span>
 
                     <strong id="monthlyPercentage">
@@ -300,10 +287,13 @@
                     </span>
 
                     <strong>
+
                         <span id="unitsRemaining">
-                            170
+                            0
                         </span>
+
                         kWh
+
                     </strong>
 
                 </div>
@@ -326,10 +316,13 @@
                     </span>
 
                     <strong>
+
                         <span id="todayUsage">
                             0.00
                         </span>
+
                         kWh
+
                     </strong>
 
                 </article>
@@ -346,10 +339,13 @@
                     </span>
 
                     <strong>
+
                         <span id="todayTarget">
-                            5.67
+                            0.00
                         </span>
+
                         kWh
+
                     </strong>
 
                 </article>
@@ -366,10 +362,13 @@
                     </span>
 
                     <strong>
+
                         <span id="estimatedMonthlyUsage">
                             0.00
                         </span>
+
                         kWh
+
                     </strong>
 
                 </article>
@@ -386,10 +385,13 @@
                     </span>
 
                     <strong>
+
                         Rs.
+
                         <span id="dashboardSpentToday">
                             0
                         </span>
+
                     </strong>
 
                 </article>
@@ -397,7 +399,7 @@
             </div>
 
 
-            <!-- DAILY CARD -->
+            <!-- DAILY -->
 
             <article class="card">
 
@@ -452,8 +454,7 @@
                     class="helper-text"
                     id="dailyRecommendation"
                 >
-                    Recommended maximum:
-                    5.67 kWh today.
+                    Start a month to begin tracking.
                 </p>
 
             </article>
@@ -491,7 +492,6 @@
                 <div class="quick-actions">
 
                     <button
-                        type="button"
                         class="action-button primary"
                         data-section-target="appliances"
                     >
@@ -499,7 +499,6 @@
                     </button>
 
                     <button
-                        type="button"
                         class="action-button secondary"
                         data-section-target="expenses"
                     >
@@ -507,7 +506,6 @@
                     </button>
 
                     <button
-                        type="button"
                         class="action-button secondary"
                         data-section-target="history"
                     >
@@ -519,7 +517,7 @@
             </article>
 
 
-            <!-- EXPENSE SUMMARY -->
+            <!-- BUDGET -->
 
             <article class="card">
 
@@ -553,10 +551,13 @@
                         </span>
 
                         <strong>
+
                             Rs.
+
                             <span id="dashboardDailyBudget">
-                                600
+                                0
                             </span>
+
                         </strong>
 
                     </div>
@@ -569,10 +570,13 @@
                         </span>
 
                         <strong>
+
                             Rs.
+
                             <span id="dashboardSpent">
                                 0
                             </span>
+
                         </strong>
 
                     </div>
@@ -588,7 +592,7 @@
                             id="dashboardRemainingBudget"
                             class="positive-money"
                         >
-                            Rs. 600
+                            Rs. 0
                         </strong>
 
                     </div>
@@ -638,9 +642,8 @@
                 </span>
 
                 <p>
-                    Appliance usage is estimated from wattage
-                    and runtime. Your actual meter is the
-                    final source of truth.
+                    Usage is estimated from appliance wattage
+                    and runtime.
                 </p>
 
             </div>
@@ -688,7 +691,6 @@
 
 
             <button
-                type="button"
                 class="action-button primary full-width"
                 id="saveScheduleBtn"
             >
@@ -738,7 +740,7 @@
                         <strong>
                             Rs.
                             <span id="expenseBudget">
-                                600
+                                0
                             </span>
                         </strong>
 
@@ -768,7 +770,7 @@
                         </span>
 
                         <strong id="expenseRemaining">
-                            Rs. 600
+                            Rs. 0
                         </strong>
 
                     </div>
@@ -801,7 +803,7 @@
 
                     <div class="form-group">
 
-                        <label for="expenseAmount">
+                        <label>
                             Amount (PKR)
                         </label>
 
@@ -810,7 +812,6 @@
                             type="number"
                             min="0"
                             step="0.01"
-                            placeholder="350"
                             required
                         >
 
@@ -819,35 +820,18 @@
 
                     <div class="form-group">
 
-                        <label for="expenseCategory">
+                        <label>
                             Category
                         </label>
 
                         <select id="expenseCategory">
 
-                            <option>
-                                Food
-                            </option>
-
-                            <option>
-                                Electricity
-                            </option>
-
-                            <option>
-                                Water
-                            </option>
-
-                            <option>
-                                Transport
-                            </option>
-
-                            <option>
-                                Shopping
-                            </option>
-
-                            <option>
-                                Other
-                            </option>
+                            <option>Food</option>
+                            <option>Electricity</option>
+                            <option>Water</option>
+                            <option>Transport</option>
+                            <option>Shopping</option>
+                            <option>Other</option>
 
                         </select>
 
@@ -856,7 +840,7 @@
 
                     <div class="form-group">
 
-                        <label for="expenseNote">
+                        <label>
                             Note
                         </label>
 
@@ -871,7 +855,7 @@
 
                     <div class="form-group">
 
-                        <label for="expenseDate">
+                        <label>
                             Date
                         </label>
 
@@ -1026,7 +1010,7 @@
 
                 <div class="form-group">
 
-                    <label for="historyDate">
+                    <label>
                         Select Date
                     </label>
 
@@ -1068,10 +1052,13 @@
                         </span>
 
                         <strong>
+
                             <span id="historyElectricity">
                                 0.00
                             </span>
+
                             kWh
+
                         </strong>
 
                     </div>
@@ -1084,10 +1071,13 @@
                         </span>
 
                         <strong>
+
                             Rs.
+
                             <span id="historyExpenses">
                                 0
                             </span>
+
                         </strong>
 
                     </div>
@@ -1100,10 +1090,13 @@
                         </span>
 
                         <strong>
+
                             Rs.
+
                             <span id="historyElectricityCost">
                                 0
                             </span>
+
                         </strong>
 
                     </div>
@@ -1130,6 +1123,7 @@
                     </div>
 
                 </div>
+
 
                 <div
                     id="historyList"
@@ -1191,7 +1185,7 @@
 
                 <div class="form-group">
 
-                    <label for="monthlyTargetInput">
+                    <label>
                         Monthly Target (kWh)
                     </label>
 
@@ -1207,7 +1201,7 @@
 
                 <div class="form-group">
 
-                    <label for="electricityTariffInput">
+                    <label>
                         Electricity Price / Unit (PKR)
                     </label>
 
@@ -1216,7 +1210,6 @@
                         type="number"
                         min="0"
                         step="0.01"
-                        placeholder="Example: 65"
                     >
 
                 </div>
@@ -1224,7 +1217,7 @@
 
                 <div class="form-group">
 
-                    <label for="dailyBudgetInput">
+                    <label>
                         Daily Expense Budget (PKR)
                     </label>
 
@@ -1239,7 +1232,6 @@
 
 
                 <button
-                    type="button"
                     class="action-button primary full-width"
                     id="saveEnergySettingsBtn"
                 >
@@ -1277,7 +1269,6 @@
 
 
                 <button
-                    type="button"
                     class="action-button primary full-width"
                     id="saveApplianceSettingsBtn"
                 >
@@ -1310,15 +1301,14 @@
 
                 <p class="helper-text">
 
-                    Your data is saved inside this browser.
-                    GitHub Pages does not need a database for
-                    this personal version.
+                    Your electricity data is stored locally
+                    in this browser. It remains after refresh
+                    and can be exported as a backup.
 
                 </p>
 
 
                 <button
-                    type="button"
                     class="action-button secondary full-width"
                     id="exportDataBtn"
                 >
@@ -1327,7 +1317,6 @@
 
 
                 <button
-                    type="button"
                     class="danger-button full-width"
                     id="resetDataBtn"
                 >
@@ -1341,7 +1330,6 @@
     </main>
 
 
-
     <!-- =====================================================
          BOTTOM NAV
     ====================================================== -->
@@ -1349,62 +1337,43 @@
     <nav class="bottom-nav">
 
         <button
-            type="button"
             class="nav-item active"
             data-section="dashboard"
         >
             <span>⌂</span>
-            <small>
-                Home
-            </small>
+            <small>Home</small>
         </button>
 
-
         <button
-            type="button"
             class="nav-item"
             data-section="appliances"
         >
             <span>⚡</span>
-            <small>
-                Devices
-            </small>
+            <small>Devices</small>
         </button>
 
-
         <button
-            type="button"
             class="nav-item"
             data-section="expenses"
         >
             <span>💰</span>
-            <small>
-                Money
-            </small>
+            <small>Money</small>
         </button>
 
-
         <button
-            type="button"
             class="nav-item"
             data-section="history"
         >
             <span>📊</span>
-            <small>
-                History
-            </small>
+            <small>History</small>
         </button>
 
-
         <button
-            type="button"
             class="nav-item"
             data-section="settings"
         >
             <span>⚙️</span>
-            <small>
-                Settings
-            </small>
+            <small>Settings</small>
         </button>
 
     </nav>
@@ -1434,13 +1403,12 @@
                 </p>
 
                 <h2>
-                    Start a New Month
+                    Start Electricity Tracking
                 </h2>
 
             </div>
 
             <button
-                type="button"
                 class="modal-close"
                 data-close-modal="newMonthModal"
             >
@@ -1452,15 +1420,15 @@
 
         <p class="modal-text">
 
-            Start a fresh electricity cycle. Your previous
-            month's data will remain available in History.
+            Enter your current electricity information.
+            This will become your new tracking cycle.
 
         </p>
 
 
         <div class="form-group">
 
-            <label for="newMonthName">
+            <label>
                 Month
             </label>
 
@@ -1474,8 +1442,22 @@
 
         <div class="form-group">
 
-            <label for="newMonthUnits">
-                Starting Meter Reading (optional)
+            <label>
+                Start Date
+            </label>
+
+            <input
+                id="newMonthDate"
+                type="date"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Starting Meter Reading
             </label>
 
             <input
@@ -1491,7 +1473,7 @@
 
         <div class="form-group">
 
-            <label for="newMonthTarget">
+            <label>
                 Monthly Target (kWh)
             </label>
 
@@ -1500,6 +1482,7 @@
                 type="number"
                 min="1"
                 step="0.01"
+                placeholder="Example: 170"
             >
 
         </div>
@@ -1508,7 +1491,6 @@
         <div class="modal-actions">
 
             <button
-                type="button"
                 class="action-button secondary"
                 data-close-modal="newMonthModal"
             >
@@ -1516,11 +1498,10 @@
             </button>
 
             <button
-                type="button"
                 class="action-button primary"
                 id="startNewMonthBtn"
             >
-                Start Month
+                Start Now
             </button>
 
         </div>
@@ -1547,13 +1528,8 @@
 </div>
 
 
-
-<!-- =========================================================
-     JAVASCRIPT
-========================================================= -->
-
-<script src="config.js"></script>
 <script src="script.js"></script>
 
 </body>
+
 </html>
