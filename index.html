@@ -93,11 +93,9 @@
             aria-controls="sideMenu"
             aria-expanded="false"
         >
-
             <span></span>
             <span></span>
             <span></span>
-
         </button>
 
     </header>
@@ -180,15 +178,8 @@
                 class="side-nav-item active"
                 data-section="dashboard"
             >
-
-                <span class="nav-icon">
-                    🏠
-                </span>
-
-                <span>
-                    Dashboard
-                </span>
-
+                <span class="nav-icon">🏠</span>
+                <span>Dashboard</span>
             </button>
 
 
@@ -197,15 +188,8 @@
                 class="side-nav-item"
                 data-section="appliances"
             >
-
-                <span class="nav-icon">
-                    ⚡
-                </span>
-
-                <span>
-                    Appliances
-                </span>
-
+                <span class="nav-icon">⚡</span>
+                <span>Appliances</span>
             </button>
 
 
@@ -214,15 +198,8 @@
                 class="side-nav-item"
                 data-section="schedule"
             >
-
-                <span class="nav-icon">
-                    🕐
-                </span>
-
-                <span>
-                    Schedule
-                </span>
-
+                <span class="nav-icon">🕐</span>
+                <span>Schedule</span>
             </button>
 
 
@@ -231,15 +208,8 @@
                 class="side-nav-item"
                 data-section="expenses"
             >
-
-                <span class="nav-icon">
-                    💰
-                </span>
-
-                <span>
-                    Expenses
-                </span>
-
+                <span class="nav-icon">💰</span>
+                <span>Expenses</span>
             </button>
 
 
@@ -248,15 +218,8 @@
                 class="side-nav-item"
                 data-section="history"
             >
-
-                <span class="nav-icon">
-                    📊
-                </span>
-
-                <span>
-                    History
-                </span>
-
+                <span class="nav-icon">📊</span>
+                <span>History</span>
             </button>
 
 
@@ -265,15 +228,8 @@
                 class="side-nav-item"
                 data-section="settings"
             >
-
-                <span class="nav-icon">
-                    ⚙️
-                </span>
-
-                <span>
-                    Settings
-                </span>
-
+                <span class="nav-icon">⚙️</span>
+                <span>Settings</span>
             </button>
 
         </nav>
@@ -314,7 +270,6 @@
     >
 
 
-
         <!-- =================================================
              DASHBOARD
         ================================================== -->
@@ -323,7 +278,6 @@
             id="dashboard"
             class="page-section active-section"
         >
-
 
             <!-- HERO -->
 
@@ -370,9 +324,7 @@
 
 
 
-            <!-- =================================================
-                 CURRENT MONTH
-            ================================================== -->
+            <!-- CURRENT MONTH -->
 
             <article class="card month-card">
 
@@ -419,7 +371,6 @@
                 <div class="usage-target">
 
                     <span>
-
                         of
 
                         <strong id="monthlyTargetDisplay">
@@ -427,7 +378,6 @@
                         </strong>
 
                         kWh target
-
                     </span>
 
 
@@ -470,12 +420,9 @@
 
 
 
-            <!-- =================================================
-                 QUICK STATS
-            ================================================== -->
+            <!-- QUICK STATS -->
 
             <div class="stats-grid">
-
 
                 <article class="stat-card">
 
@@ -504,7 +451,6 @@
                     </strong>
 
                 </article>
-
 
 
                 <article class="stat-card">
@@ -536,7 +482,6 @@
                 </article>
 
 
-
                 <article class="stat-card">
 
                     <div class="stat-top">
@@ -564,7 +509,6 @@
                     </strong>
 
                 </article>
-
 
 
                 <article class="stat-card">
@@ -599,9 +543,7 @@
 
 
 
-            <!-- =================================================
-                 DAILY CONSUMPTION
-            ================================================== -->
+            <!-- DAILY CONSUMPTION -->
 
             <article class="card">
 
@@ -668,9 +610,7 @@
 
 
 
-            <!-- =================================================
-                 ALERTS
-            ================================================== -->
+            <!-- ALERTS -->
 
             <div
                 id="alertsContainer"
@@ -680,9 +620,7 @@
 
 
 
-            <!-- =================================================
-                 QUICK ACTIONS
-            ================================================== -->
+            <!-- QUICK ACTIONS -->
 
             <article class="card">
 
@@ -740,9 +678,7 @@
 
 
 
-            <!-- =================================================
-                 DAILY BUDGET
-            ================================================== -->
+            <!-- DAILY BUDGET -->
 
             <article class="card">
 
@@ -831,7 +767,6 @@
 
             </article>
 
-
         </section>
 
 
@@ -865,8 +800,11 @@
 
 
                 <span class="live-indicator">
+
                     <span></span>
+
                     LIVE
+
                 </span>
 
             </div>
@@ -880,11 +818,26 @@
 
                 <p>
                     Usage is estimated from appliance
-                    wattage and runtime.
+                    wattage and runtime. Tap
+                    <strong>Edit Watt</strong>
+                    to update any device.
                 </p>
 
             </div>
 
+
+            <!--
+                Appliance cards are generated by script.js.
+
+                Each generated appliance should contain:
+
+                • Device name
+                • Wattage
+                • Runtime
+                • kWh
+                • Edit Watt button
+                • Optional note
+            -->
 
             <div
                 id="appliancesContainer"
@@ -992,10 +945,15 @@
                         </span>
 
                         <strong>
-                            <small>Rs.</small>
+
+                            <small>
+                                Rs.
+                            </small>
+
                             <span id="expenseBudget">
                                 0
                             </span>
+
                         </strong>
 
                     </div>
@@ -1008,10 +966,15 @@
                         </span>
 
                         <strong>
-                            <small>Rs.</small>
+
+                            <small>
+                                Rs.
+                            </small>
+
                             <span id="expenseSpentToday">
                                 0
                             </span>
+
                         </strong>
 
                     </div>
@@ -1061,7 +1024,6 @@
 
 
                 <form id="expenseForm">
-
 
                     <div class="form-group">
 
@@ -1314,8 +1276,6 @@
 
 
 
-            <!-- DATE -->
-
             <article class="card">
 
                 <div class="form-group">
@@ -1334,8 +1294,6 @@
             </article>
 
 
-
-            <!-- SELECTED DAY -->
 
             <article class="card">
 
@@ -1357,7 +1315,6 @@
 
 
                 <div class="summary-grid">
-
 
                     <div class="summary-item">
 
@@ -1426,8 +1383,6 @@
             </article>
 
 
-
-            <!-- HISTORY LIST -->
 
             <article class="card">
 
@@ -1604,6 +1559,15 @@
                 </div>
 
 
+                <p class="helper-text">
+
+                    Change a device's wattage or note directly
+                    from the device card using
+                    <strong>Edit Watt</strong>.
+
+                </p>
+
+
                 <div
                     id="applianceSettingsContainer"
                     class="settings-list"
@@ -1650,9 +1614,11 @@
 
                 <p class="helper-text">
 
-                    Your electricity data is stored locally
-                    in this browser. It remains after refresh
-                    and can be exported as a backup.
+                    Your electricity data, appliance settings,
+                    wattage and notes are stored locally in
+                    this browser. Your data remains after
+                    refreshing the page and can be exported
+                    as a backup.
 
                 </p>
 
@@ -1680,7 +1646,6 @@
 
         </section>
 
-
     </main>
 
 
@@ -1694,21 +1659,13 @@
         aria-label="Bottom navigation"
     >
 
-
         <button
             type="button"
             class="nav-item active"
             data-section="dashboard"
         >
-
-            <span>
-                ⌂
-            </span>
-
-            <small>
-                Home
-            </small>
-
+            <span>⌂</span>
+            <small>Home</small>
         </button>
 
 
@@ -1717,15 +1674,8 @@
             class="nav-item"
             data-section="appliances"
         >
-
-            <span>
-                ⚡
-            </span>
-
-            <small>
-                Devices
-            </small>
-
+            <span>⚡</span>
+            <small>Devices</small>
         </button>
 
 
@@ -1734,15 +1684,8 @@
             class="nav-item"
             data-section="expenses"
         >
-
-            <span>
-                💰
-            </span>
-
-            <small>
-                Money
-            </small>
-
+            <span>💰</span>
+            <small>Money</small>
         </button>
 
 
@@ -1751,15 +1694,8 @@
             class="nav-item"
             data-section="history"
         >
-
-            <span>
-                📊
-            </span>
-
-            <small>
-                History
-            </small>
-
+            <span>📊</span>
+            <small>History</small>
         </button>
 
 
@@ -1768,15 +1704,8 @@
             class="nav-item"
             data-section="settings"
         >
-
-            <span>
-                ⚙️
-            </span>
-
-            <small>
-                Settings
-            </small>
-
+            <span>⚙️</span>
+            <small>Settings</small>
         </button>
 
     </nav>
@@ -1837,7 +1766,6 @@
         </p>
 
 
-
         <div class="form-group">
 
             <label for="newMonthName">
@@ -1852,7 +1780,6 @@
         </div>
 
 
-
         <div class="form-group">
 
             <label for="newMonthDate">
@@ -1865,7 +1792,6 @@
             >
 
         </div>
-
 
 
         <div class="form-group">
@@ -1886,7 +1812,6 @@
         </div>
 
 
-
         <div class="form-group">
 
             <label for="newMonthTarget">
@@ -1903,7 +1828,6 @@
             >
 
         </div>
-
 
 
         <div class="modal-actions">
@@ -1923,6 +1847,170 @@
                 id="startNewMonthBtn"
             >
                 Start Now
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     EDIT DEVICE WATT MODAL
+========================================================= -->
+
+<div
+    class="modal-overlay"
+    id="editDeviceModal"
+    hidden
+>
+
+    <div
+        class="modal device-edit-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="editDeviceTitle"
+    >
+
+        <!-- HEADER -->
+
+        <div class="modal-header">
+
+            <div>
+
+                <p class="eyebrow">
+                    DEVICE SETTINGS
+                </p>
+
+                <h2 id="editDeviceTitle">
+                    Edit Device
+                </h2>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="modal-close"
+                id="closeEditDeviceModal"
+                aria-label="Close"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+
+        <!-- DEVICE ICON -->
+
+        <div
+            class="device-edit-icon"
+            id="editDeviceIcon"
+            aria-hidden="true"
+        >
+            ⚡
+        </div>
+
+
+
+        <!-- DEVICE NAME -->
+
+        <div class="form-group">
+
+            <label for="editDeviceName">
+                Device
+            </label>
+
+            <input
+                id="editDeviceName"
+                type="text"
+                readonly
+            >
+
+        </div>
+
+
+
+        <!-- WATTAGE -->
+
+        <div class="form-group">
+
+            <label for="editDeviceWatt">
+                Wattage
+            </label>
+
+            <div class="input-with-unit">
+
+                <input
+                    id="editDeviceWatt"
+                    type="number"
+                    min="0"
+                    step="1"
+                    inputmode="numeric"
+                    placeholder="50"
+                    required
+                >
+
+                <span>
+                    W
+                </span>
+
+            </div>
+
+            <p class="field-hint">
+                Enter the actual power rating of this device.
+            </p>
+
+        </div>
+
+
+
+        <!-- NOTE -->
+
+        <div class="form-group">
+
+            <label for="editDeviceNote">
+                Note
+            </label>
+
+            <textarea
+                id="editDeviceNote"
+                maxlength="150"
+                rows="3"
+                placeholder="e.g. Used mostly at night"
+            ></textarea>
+
+            <p class="field-hint">
+                Add any useful information about this device.
+            </p>
+
+        </div>
+
+
+
+        <!-- ACTIONS -->
+
+        <div class="modal-actions">
+
+            <button
+                type="button"
+                class="action-button secondary"
+                id="cancelEditDevice"
+            >
+                Cancel
+            </button>
+
+
+            <button
+                type="button"
+                class="action-button primary"
+                id="saveEditDevice"
+            >
+                <span>✓</span>
+                Save Changes
             </button>
 
         </div>
